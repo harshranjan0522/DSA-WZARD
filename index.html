@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DSA-WIZARD | LEARN DSA REAL QUICK</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+</head>
+
+<body>
+    <div class="container">
+        <section class="hero" data-aos="fade-down">
+            <h1>DSA WIZARD</h1>
+            <p class="introduction">Explore the universe of <span style="color: #00ff73">DATA STRUCTURES</span>
+                <br>through
+                interactive codes and
+                <span style="color: #00ff73">futuristic learning.</span>
+            </p>
+        </section>
+        <section>
+            <h2 class="core">Core Structures</h2>
+            <div class="ds-grid" data-aos="fade-in">
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">ARRAY</h3>
+                    <p> A collection of elements of the
+                        same data type, stored in
+                        contiguous memory
+                        locations. Each element in an
+                        array can be accessed using its
+                        index, which is a numerical
+                        identifier indicating its position in
+                        the sequence.</p>
+                    <a href="array.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">LINKED LIST</h3>
+                    <p> A linear collection of data
+                        elements whose order is not
+                        given by their physical placement
+                        in the memory and it consists of
+                        nodes to store data and uses
+                        address to link the nodes.</p>
+                    <a href="linkedlist.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">TREES</h3>
+                    <p> A tree is a hierarchical, non-linear
+                        structure where data is organized
+                        in a parent-child relationship
+                        between nodes. It consists of
+                        nodes connected by edges, with a
+                        root node at the top and branches
+                        extending down to child nodes..</p>
+                    <a href="trees.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">HASH TABLE</h3>
+                    <p> A hash table is a data structure
+                        that uses a hash function to map
+                        keys to values, enabling efficient
+                        storage and retrieval of data. It's
+                        like a dictionary where you can
+                        quickly look up values using their
+                        corresponding keys. </p>
+                    <a href="hashtable.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+            </div>
+            <div class="ds-grid extra-cards hidden" id="extra-cards">
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">STRING</h3>
+                    <p>A string is a sequence of
+                        characters, such as letters,
+                        numbers, symbols, and spaces. It
+                        is a fundamental data type used
+                        to represent text in
+                        programming.</p>
+                    <a href="string.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">STACK</h3>
+                    <p>A stack is a linear data structure
+                        that follows the Last-In, First-Out
+                        (LIFO) principle, meaning the last
+                        element added is the first one to
+                        be removed.</p>
+                    <a href="stack.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">QUEUE</h3>
+                    <p>A queue is a linear data structure
+                        that operates on the principle of
+                        First-In, First-Out (FIFO). This
+                        means elements are added
+                        (enqueued) to the rear end and
+                        removed (dequeued) from the
+                        front end.</p>
+                    <a href="queue.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+                <div class="ds-card" data-aos="zoom-in-up">
+                    <h3 style="color: #00ff73">GRAPHS</h3>
+                    <p>A graph is a non-linear data
+                        structure composed of vertices
+                        (also called nodes) and edges that
+                        connect pairs of vertices. It
+                        represents relationships or
+                        connections between entities,
+                        where vertices hold data and
+                        edges show the connections. </p>
+                    <a href="graphs.html"><button class="explore-btn">EXPLORE</button></a>
+                </div>
+            </div>
+            <button class="deepdive" onclick="toggleCards()" data-aos="zoom-in" id="deepDiveBtn">TAKE A DEEP
+                DIVE</button>
+
+            <section class="cheat-sheets" data-aos="ease-in">
+                <h2 class="core">Cheat Sheets</h2>
+                <div class="cheat-sheet-links">
+                    <a href="cheatsheets/arrays.pdf" download>Download Array Cheat Sheet</a>
+                    <a href="cheatsheets/linkedlist.pdf" download>Download Linked List Cheat Sheet</a>
+                    <a href="cheatsheets/trees.pdf" download>Download Tree Cheat Sheet</a>
+                    <a href="cheatsheets/hashtable.pdf" download>Download Hash Table Cheat Sheet</a>
+                </div>
+            </section>
+            <div class="why-dsa">
+                <div class="left-side" data-aos="fade-left">
+                    <h2>WHAT <br>ACTUALLY ARE <br><span style="color: #00ff73">DATA <br>STRUCTURES</span><br> AND
+                        <br>WHY ARE THEY <br> <SPAn style="color: #00ff73">SO MUCH <br> IMPORTANT</SPAn> ?
+                    </h2>
+                </div>
+                <div class="right-side" data-aos="fade-right">
+                    <p><strong><span style="color: #00ff73">DATA STRUCTURES</span></strong> are ways of organizing and
+                        storing data in a computer so that it can be accessed and used efficiently.</p>
+                    <p>Think of them like containers or formats — just like you use a bookshelf to organize books or a
+                        folder to organize files.</p><br>
+                    <p><strong><span style="color: #00ff73">Data Structures</span></strong> are the building blocks of
+                        <strong><span style="color: #00ff73">EFFICIENT PROGRAMMING</span></strong>. They help manage and
+                        organize data so operations like storing, retrieving, and processing are done quickly and
+                        effectively.
+                    </p>
+                </div>
+            </div>
+            <div class="tips" data-aos="fade-down">
+                <h3>AFRAID OF <span style="color: #00ff73">DATA STRUCTURES</span> ?</h3>
+                <div class="answer">
+                    <ul>
+                        <li>Don’t just memorize — ask “Why are we using this structure?”</li>
+                        <li>Start with the Basics, Master Recursion.</li>
+                        <li>Use pen & paper, a whiteboard to trace variables and logic.</li>
+                        <li>Watching videos and visual explanations helps deeply.</li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+    </div>
+    <footer>
+        Fuel Your Coding Journey with the Power of DSA.<br />
+        Queries & Suggestions - harshranjan1111@gmail.com
+    </footer>
+    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+    <script>
+        function toggleCards() {
+            const extraCards = document.getElementById('extra-cards');
+            const button = document.getElementById('deepDiveBtn');
+
+            if (extraCards.classList.contains('hidden')) {
+                extraCards.classList.remove('hidden');
+                extraCards.classList.add('fade-in');
+                button.innerText = "IT'S TOO MUCH ^_^";
+            } else {
+                extraCards.classList.add('hidden');
+                button.innerText = "TAKE A DEEP DIVE";
+            }
+        }
+
+        AOS.init({
+            duration: 1200, // Animation duration in ms
+            offset: 120,
+            once: false // Animation runs only once
+        });
+    </script>
+
+</body>
+
+</html>
