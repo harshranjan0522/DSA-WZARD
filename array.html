@@ -1,0 +1,188 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ARRAYS</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <link rel="stylesheet" href="array.css">
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <h1>DSA WIZARD</h1>
+            </div>
+            <div class="options">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#operations-section">OPERATIONS</a></li>
+                    <li><a href="#complexities-chart">COMPLEXITIES</a></li>
+                    <li><a href="#terminal">TERMINAL</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="array-intro">
+        <h1><span style="color: #00ff73;">ARRAY</span></h1>
+        <div class="flex-centre-divided-into-left-and-right">
+            <div class="what-is-array-left-side">
+                <p>A collection of elements of the same data type, stored in contiguous memory locations. Each element
+                    in an
+                    <span style="color: #00ff73;">ARRAY</span> can be accessed using its index, which is a numerical
+                    identifier indicating its position in the
+                    sequence. <br><br>EASY TO UNDERSTAND - An <span style="color: #00ff73;">ARRAY</span> is a list of
+                    items stored in order, all in one place in a
+                    computer's memory.
+                    <br><br>
+                    <span style="color: #00ff73;">TECHNICAL</span> DEFINITION -
+                    An <span style="color: #00ff73;">ARRAY</span> stores multiple values under a single name.
+                    All values must be of the same type (like all numbers or all letters).
+                    Each item has an index (starting from 0).
+                </p>
+            </div>
+            <div class="visual-structure-right-side">
+                <img src="/IMAGE/ARRAY/1.png" alt="INITIALIZATION - int arr[size] = {comma separated values};"
+                    srcset="">
+            </div>
+        </div>
+    </section>
+    <section class="real-life-example-centre">
+        <h3>REAL LIFE EXAMPLE OF <span style="color: #00ff73;">ARRAY</span></h3>
+        <img src="/IMAGE/ARRAY/2.png" alt="REAL LIFE EXAMPLE - fruits = [name of fruits separated by commas];">
+    </section>
+    <section class="features-table-centre-of-screen">
+        <h3>FEATURES OF <span style="color: #00ff73;">ARRAY</span></h3>
+        <img src="/IMAGE/ARRAY/3.png"
+            alt="FEATURES OF ARRAYS - Same data type, Fixed size, Indexed access, Fast access, Efficient memory usage, Easy to loop through, Supports sorting and searching, Temporary storage in RAM, Can be multidimensional, Supported in most programming languages.">
+    </section>
+
+
+    <!-- CSS AND JS DONE WITHOUT RESPONSIVENESS -->
+
+    <div class="operations"><h3>OPERATIONS IN AN <span style="color: #00ff73;">ARRAY</span></h3>
+    </div>
+        <section class="operations-centre-of-screen" id="operations-section">
+
+            <div class="left-side-explanation">
+                <h4>INSERTION IN <span style="color: #00ff73;">ARRAY</span></h4>
+                <div class="card">
+                    <p><strong>1. AT BEGINNING - </strong>It means the element to be inserted will be inserted in the starting of the
+                        <span style="color: #00ff73;">ARRAY</span> by increasing the size by one. i.e. at index - 0.
+                    </p>
+                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
+                </div>
+                <div class="card">
+                    <p><strong>2. AT MIDDLE/GIVEN POSITION - </strong>It means the element to be inserted will be inserted at the given
+                        position of the
+                        <span style="color: #00ff73;">ARRAY</span> and rest of the elements next to it will shift to one
+                        place towards right by increasing the size by one. i.e. at index - position-1.
+                    </p>
+                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+                </div>
+                <div class="card">
+                    <p><strong>3. AT END - </strong>It means the element to be inserted will be inserted at the last position of the
+                        <span style="color: #00ff73;">ARRAY</span> by increasing the size by one. i.e. at index - (-1).
+                    </p>
+                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
+                </div>
+                <h4>DELETION IN <span style="color: #00ff73;">ARRAY</span></h4>
+                <div class="card">
+                    <p><strong>1. FROM BEGINNING -</strong> It means the element to be removed will be removed from the starting of the
+                        <span style="color: #00ff73;">ARRAY</span> by decreasing the size by one. i.e. at index - 0.
+                    </p>
+                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
+                </div>
+                <div class="card">
+                    <p><strong>2. FROM MIDDLE/GIVEN POSITION - </strong>It means the element to be deleted will be removed from the given
+                        position of the
+                        <span style="color: #00ff73;">ARRAY</span> and rest of the elements next to it will shift to one
+                        place towards left by decreasing the size by one. i.e. at index - position-1.
+                    </p>
+                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+                </div>
+                <div class="card">
+                    <p><strong>3. FROM END - </strong>It means the element to be removed will be deleted from the last position of the
+                        <span style="color: #00ff73;">ARRAY</span> by decreasing the size by one. i.e. at index - (-1).
+                    </p>
+                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
+                </div>
+            
+            <h4>SEARCHING IN <span style="color: #00ff73;">ARRAY</span></h4>
+            <div class="card">
+                <p>It means the element to look out for the mentioned or needed element in the
+                    <span style="color: #00ff73;">ARRAY</span> by traversing whole array and checking each of the
+                    elements one by one. i.e. index - 0 to size-1
+                </p>
+                <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+            </div>
+            <h4>SORTING IN <span style="color: #00ff73;">ARRAY</span></h4>
+            <div class="card">
+                <p>It means to sort the <span style="color: #00ff73;">ARRAY</span> either in ascending or in descending
+                    order of the elements present in the
+                    <span style="color: #00ff73;">ARRAY</span> by traversing whole array. i.e. index - 0 to size-1
+                </p>
+                <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n2)</p>
+            </div>
+            
+        </div>
+        <div class="right-side-cheat-sheet">
+            <div class="cheat-sheet-links-codes">
+                <h4>CODE CHEAT SHEETS FOR <span style="color: #00ff73;">ARRAYS</span></h4>
+                <a href="cheatsheets/insertion_array.pdf" download>Download INSERTION CODE Sheet</a>
+                <a href="cheatsheets/deletion_array.pdf" download>Download DELETION CODE Sheet</a>
+                <a href="cheatsheets/searching_array.pdf" download>Download SEARCHING CODE Sheet</a>
+                <a href="cheatsheets/sorting_array.pdf" download>Download SORTING CODE Sheet</a>
+                <a href="cheatsheets/questions_array.pdf" download>Download QUESTIONS Sheet</a>
+                <a href="cheatsheets/resources_array.pdf" download>Download RESOURCES Sheet</a>
+            </div>
+        </div>
+</div>
+        </div>
+    </section>
+    <section class="terminal" id="terminal">
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-tabs">
+                    <button class="tab-btn active" data-lang="cpp">C++</button>
+                    <button class="tab-btn" data-lang="java">Java</button>
+                    <button class="tab-btn" data-lang="python">Python</button>
+                    <button class="tab-btn" data-lang="javascript">JavaScript</button>
+                </div>
+                <div class="terminal-controls">
+                    <span class="control-dot red"></span>
+                    <span class="control-dot yellow"></span>
+                    <span class="control-dot green"></span>
+                </div>
+            </div>
+            <div class="terminal-body">
+                <pre class="code-display active" id="cpp-code"></pre>
+                <pre class="code-display" id="java-code"></pre>
+                <pre class="code-display" id="python-code"></pre>
+                <pre class="code-display" id="javascript-code"></pre>
+            </div>
+        </div>
+    </section>
+    <section class="complexities-chart" id="complexities-chart">
+        <h3><span style="color: #00ff73;">ARRAY</span> COMPLEXITIES IN A GO...</h3>
+        <img src="/IMAGE/ARRAY/7.png" alt="COMPLEXITIES - PREVIEW UNAVAILABLE">
+    </section>
+    <div class="buttons">
+    <a href="index.html">HOME</a>
+    <a href="#header">TOP OF THE PAGE</a>
+    </div>
+    <footer>
+        Fuel Your Coding Journey with the Power of DSA.<br />
+        Queries & Suggestions - harshranjan1111@gmail.com
+    </footer>
+    <script src="array.js"></script>
+</body>
+
+</html>
