@@ -1,0 +1,997 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>STACK</title>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
+        rel="stylesheet">
+    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <!-- <link rel="stylesheet" href="array.css"> -->
+    <style>
+        :root {
+            --primary: #00ff88;
+            --secondary: #003b27;
+            --dark: #0a0a0a;
+            --light: #e0e0e0;
+            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+        }
+
+        html {
+            scroll-behavior: smooth;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background: #0000 url('/image.png') no-repeat center center;
+            background-size: cover;
+            color: var(--light);
+            font-family: 'Rajdhani', Orbitron;
+            overflow-x: hidden;
+        }
+
+        h1,
+        h2,
+        h3,
+        h4 {
+            font-family: 'Orbitron', sans-serif;
+            text-transform: uppercase;
+            letter-spacing: 2px;
+            text-align: center;
+        }
+
+        /* Navigation Bar Styles */
+        header {
+            background-color: #00000084;
+            /* Dark blue background */
+            padding: 1rem 2rem;
+            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
+                0 2px 4px -1px rgba(0, 0, 0, 0.06);
+        }
+
+        nav {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .logo h1 {
+            color: #00ff73;
+            /* Bright green accent */
+            font-family: 'Orbitron', sans-serif;
+            font-weight: 700;
+            font-size: 1.8rem;
+            margin: 0;
+            text-shadow: var(--glow);
+            animation: pulse 1s infinite alternate;
+            letter-spacing: 1px;
+            text-shadow: 0 0 8px rgba(0, 255, 115, 0.3);
+        }
+
+        .options ul {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+            margin: 0;
+            padding: 0;
+        }
+
+        .options li {
+            color: #e2e8f0;
+            /* Light gray text */
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 500;
+            font-size: 1.1rem;
+            letter-spacing: 0.5px;
+            cursor: pointer;
+            padding: 0.5rem 0;
+            position: relative;
+            transition: all 0.3s ease;
+        }
+
+        .options li:hover {
+            color: #00ff73;
+            /* Green on hover */
+            transform: translateY(-2px);
+        }
+
+        /* Animated underline effect */
+        .options li::after {
+            content: '';
+            position: absolute;
+            width: 0;
+            height: 2px;
+            bottom: 0;
+            left: 0;
+            background-color: #00ff73;
+            transition: width 0.3s ease;
+        }
+
+        .options li:hover::after {
+            width: 100%;
+        }
+
+        /* Active tab indicator */
+        .options li.active {
+            color: #00ff73;
+        }
+
+        .options li.active::after {
+            width: 100%;
+        }
+
+
+
+        /* WRITE CODE HERE */
+        .array-intro h1 {
+            font-size: 7rem;
+            font-weight: 800;
+            text-shadow: var(--glow);
+            animation: pulse 1s infinite alternate;
+            margin: 30px auto;
+        }
+
+        .flex-centre-divided-into-left-and-right {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: row;
+
+            margin-top: 100px;
+        }
+
+        .flex-centre-divided-into-left-and-right .what-is-array-left-side {
+            display: block;
+            width: 550px;
+            background-color: #00ff731b;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 0px 30px;
+        }
+
+        .flex-centre-divided-into-left-and-right .what-is-array-left-side p {
+            text-align: left;
+            line-height: 25px;
+            letter-spacing: 0.3px;
+        }
+
+        .flex-centre-divided-into-left-and-right .visual-structure-right-side img {
+            width: 600px;
+            margin: 0;
+        }
+
+        @keyframes pulse {
+            0% {
+                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            }
+
+            50% {
+                text-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
+            }
+
+            100% {
+                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
+            }
+        }
+
+        .real-life-example-centre {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 160px auto;
+            flex-direction: column;
+        }
+
+        .real-life-example-centre h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-shadow: var(--glow);
+            animation: pulse 1s infinite alternate;
+            margin: 20px auto;
+        }
+
+        .features-table-centre-of-screen {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin: 0px auto;
+            flex-direction: column;
+            margin-bottom: 70px;
+        }
+
+        .features-table-centre-of-screen h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            text-shadow: var(--glow);
+            animation: pulse 1s infinite alternate;
+            margin: 30px auto;
+
+        }
+
+        .features-table-centre-of-screen img {
+            width: 600px;
+        }
+
+        .operations h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 20px auto;
+            margin-top: 150px;
+        }
+
+        .operations-centre-of-screen {
+            display: flex;
+            justify-content: center;
+            /* Changed from space-around */
+            align-items: flex-start;
+            /* Changed from center for better card alignment */
+            flex-direction: row;
+            margin: 100px auto;
+            /* Centered horizontally */
+            max-width: 1200px;
+            /* Changed from fixed width */
+            width: 90%;
+            /* More responsive */
+            gap: 40px;
+            /* Consistent spacing between columns */
+            padding: 20px;
+        }
+
+        .operations-centre-of-screen .left-side-explanation {
+            display: block;
+            width: 900px;
+            background-color: #00ff731b;
+            padding: 30px;
+            border-radius: 20px;
+            margin: 0px 30px;
+        }
+
+        .operations-centre-of-screen .left-side-explanation h4 {
+            font-size: large;
+            text-align: left;
+            margin-top: 30px;
+            margin-bottom: 20px;
+        }
+
+        .operations-centre-of-screen .left-side-explanation p {
+            text-align: left;
+            margin: 4px 0px;
+        }
+
+        .operations-centre-of-screen .left-side-explanation .card {
+            background: #00ff730f;
+            padding: 20px 20px;
+        }
+
+        .operations-centre-of-screen .right-side-cheat-sheet {
+            display: block;
+            width: 500px;
+            position: sticky;
+
+        }
+
+        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+
+        }
+
+        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes h4 {
+            margin-bottom: 50px;
+            text-shadow: var(--glow);
+            font-weight: bolder;
+            font-size: x-large;
+            animation: pulse 1s infinite alternate;
+        }
+
+        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes a {
+            background-color: #00ff73;
+            display: flex;
+            font-weight: 600;
+            letter-spacing: 1px;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border: none;
+            border-radius: 25px;
+            width: 300px;
+            height: 70px;
+            margin: 70px auto;
+            transition: 0.1s ease-in;
+        }
+
+        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes a:hover {
+            transform: scale(1.05);
+            cursor: pointer;
+            box-shadow: var(--glow);
+            background-color: #00813a;
+        }
+
+        .complexities-chart {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            flex-direction: column;
+            margin-bottom: 100px;
+        }
+
+        .complexities-chart h3 {
+            font-size: 1.3rem;
+            font-weight: 800;
+            margin: 20px auto;
+            margin-top: 150px;
+        }
+
+        .buttons a {
+            background-color: #00ff73;
+            display: flex;
+            font-weight: 600;
+            letter-spacing: 1px;
+            justify-content: center;
+            align-items: center;
+            color: white;
+            border: none;
+            border-radius: 20px;
+            width: 250px;
+            height: 60px;
+            margin: 70px auto;
+            transition: 0.1s ease-in;
+        }
+
+        .buttons a:hover {
+            transform: scale(1.02);
+            cursor: pointer;
+            background-color: #00813a;
+        }
+
+
+
+
+
+
+
+
+
+
+
+
+        /* Cheat Sheet Styles */
+        .cheat-sheets {
+            margin-top: 12rem;
+            margin-bottom: 8rem;
+            text-align: center;
+        }
+
+        .cheat-sheet-links {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 2rem;
+            justify-content: center;
+            margin-top: 2rem;
+        }
+
+        .cheat-sheet-links a {
+            background-color: var(--primary);
+            color: black;
+            font-weight: bold;
+            padding: 1rem 2rem;
+            border-radius: 10px;
+            text-decoration: none;
+            box-shadow: 0 0 10px var(--primary);
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        .cheat-sheet-links a:hover {
+            background-color: #00ff884c;
+            transform: scale(1.05);
+        }
+
+        .why-dsa {
+            text-align: center;
+            display: flex;
+            justify-content: space-around;
+            align-items: center;
+            padding: 4rem;
+            height: 100vh;
+            flex-direction: row;
+            box-sizing: border-box;
+            width: auto;
+        }
+
+        .left-side {
+            flex: 1;
+            font-size: 2rem;
+            line-height: 1.5;
+            font-weight: bold;
+            text-transform: uppercase;
+            width: 400px;
+            text-align: left;
+            margin-right: 40px;
+        }
+
+        .right-side {
+            flex: 1;
+            background-color: rgba(0, 255, 136, 0.15);
+            /* green transparent */
+            padding: 2rem;
+            border-radius: 20px;
+            font-size: 1.1rem;
+            line-height: 1.6;
+            color: white;
+            font-weight: 500;
+            width: min-content;
+            line-height: 40px;
+        }
+
+        footer {
+            text-align: center;
+            padding: 2rem;
+            background-color: rgba(0, 0, 0, 0.7);
+            ;
+            color: var(--primary);
+            font-size: 1rem;
+            margin-top: 3rem;
+            border: none;
+        }
+
+        /* Responsive adjustments */
+
+        /* TERMINAL STYLES */
+        .terminal {
+            margin: 4rem auto;
+            max-width: 850px;
+            border-radius: 12px;
+            overflow: hidden;
+            box-shadow: 0 15px 40px rgba(0, 255, 115, 0.15);
+            border: 1px solid rgba(0, 255, 115, 0.2);
+            background: #0a0f17;
+        }
+
+        .terminal-container {
+            background: #0a0f17;
+            color: #e0e0e0;
+            font-family: 'Fira Code', 'Consolas', monospace;
+            font-size: 0.95rem;
+            line-height: 1.7;
+        }
+
+        .terminal-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            background: rgba(0, 0, 0, 0.3);
+            padding: 0.8rem 1.5rem;
+            border-bottom: 1px solid rgba(0, 255, 115, 0.1);
+        }
+
+        .terminal-tabs {
+            display: flex;
+            gap: 0.8rem;
+        }
+
+        .tab-btn {
+            background: transparent;
+            color: #7a7a8c;
+            border: none;
+            padding: 0.5rem 1.2rem;
+            border-radius: 6px;
+            cursor: pointer;
+            font-family: 'Rajdhani', sans-serif;
+            font-weight: 700;
+            font-size: 0.9rem;
+            letter-spacing: 0.5px;
+            text-transform: uppercase;
+            transition: all 0.3s ease;
+            position: relative;
+            overflow: hidden;
+        }
+
+        .tab-btn::before {
+            content: '';
+            position: absolute;
+            bottom: 0;
+            left: 0;
+            width: 100%;
+            height: 2px;
+            background: #00ff73;
+            transform: scaleX(0);
+            transition: transform 0.3s ease;
+        }
+
+        .tab-btn:hover {
+            color: #d4d4d4;
+        }
+
+        .tab-btn.active {
+            color: #00ff73;
+            background: rgba(0, 255, 115, 0.1);
+        }
+
+        .tab-btn.active::before {
+            transform: scaleX(1);
+        }
+
+        .terminal-controls {
+            display: flex;
+            gap: 0.6rem;
+        }
+
+        .control-dot {
+            width: 14px;
+            height: 14px;
+            border-radius: 50%;
+            opacity: 0.7;
+            transition: opacity 0.3s ease;
+        }
+
+        .control-dot:hover {
+            opacity: 1;
+        }
+
+        .red {
+            background: #ff5f56;
+        }
+
+        .yellow {
+            background: #ffbd2e;
+        }
+
+        .green {
+            background: #27c93f;
+        }
+
+        .terminal-body {
+            padding: 1.8rem;
+            min-height: 280px;
+            max-height: 400px;
+            overflow-y: auto;
+            scrollbar-width: thin;
+            scrollbar-color: #00ff73 #0a0f17;
+        }
+
+        .terminal-body::-webkit-scrollbar {
+            width: 6px;
+        }
+
+        .terminal-body::-webkit-scrollbar-track {
+            background: #0a0f17;
+        }
+
+        .terminal-body::-webkit-scrollbar-thumb {
+            background-color: #00ff73;
+            border-radius: 3px;
+        }
+
+        .code-display {
+            display: none;
+            margin: 0;
+            white-space: pre-wrap;
+            tab-size: 4;
+        }
+
+        .code-display.active {
+            display: block;
+            animation: fadeIn 0.5s ease;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0.5;
+                transform: translateY(5px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .code-comment {
+            color: #6a9955;
+            font-style: italic;
+        }
+
+        .code-keyword {
+            color: #569cd6;
+            font-weight: bold;
+        }
+
+        .code-string {
+            color: #ce9178;
+        }
+
+        .code-function {
+            color: #dcdcaa;
+        }
+
+        .code-number {
+            color: #b5cea8;
+        }
+
+        .code-operator {
+            color: #d4d4d4;
+            font-weight: bold;
+        }
+
+        /* Responsive adjustments */
+        @media (max-width: 768px) {
+            .terminal {
+                margin: 2rem auto;
+                border-radius: 8px;
+            }
+
+            .terminal-header {
+                padding: 0.6rem 1rem;
+            }
+
+            .terminal-tabs {
+                gap: 0.4rem;
+            }
+
+            .tab-btn {
+                padding: 0.4rem 0.8rem;
+                font-size: 0.8rem;
+            }
+
+            .terminal-body {
+                padding: 1.2rem;
+                min-height: 220px;
+            }
+        }
+    </style>
+    <!-- AOS Library -->
+    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+</head>
+
+<body>
+    <header id="header">
+        <nav>
+            <div class="logo">
+                <h1>DSA WIZARD</h1>
+            </div>
+            <div class="options">
+                <ul>
+                    <li><a href="index.html">HOME</a></li>
+                    <li><a href="#operations-section">OPERATIONS</a></li>
+                    <li><a href="#complexities-chart">COMPLEXITIES</a></li>
+                    <li><a href="#terminal">TERMINAL</a></li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+    <section class="array-intro">
+        <h1><span style="color: #00ff73;">UNDER MAINTENANCE</span></h1>
+        <!-- <div class="flex-centre-divided-into-left-and-right">
+            <div class="what-is-array-left-side">
+                <p>A <span style="color: #00ff73;">STRING</span> is a sequence of
+                    characters, such as letters,
+                    numbers, symbols, and spaces. It
+                    is a fundamental data type used
+                    to represent text in
+                    programming.
+                    <br><br>
+                    A string is a sequence of characters. It is used to store and manipulate text.
+                    <br><br>
+                    <strong>Key Properties of Strings:</strong>
+                    Characters inside quotes: "hello" or 'a' <br>
+                    Immutable in many languages (like C++ std::string and Python) <br>
+                    Indexed: You can access characters by position (starting at index 0) <br>
+
+                </p>
+                <span style="color: #00ff73;">TECHNICAL</span> DEFINITION -
+                An <span style="color: #00ff73;">STRING</span> stores multiple values under a single name.
+                All values must be of the same type (like all numbers or all letters).
+                Each item has an index (starting from 0).
+                </p>
+            </div>
+            <div class="visual-structure-right-side">
+                <img src="/s1.png" alt="INITIALIZATION - int arr[size] = {comma separated values};"
+                    srcset="">
+            </div>
+        </div>
+    </section>
+
+    <section class="real-life-example-centre">
+        <h3>REAL LIFE EXAMPLE OF <span style="color: #00ff73;">STRING</span></h3>
+        <img src="/s2.png" alt="REAL LIFE EXAMPLE - fruits = [name of fruits separated by commas];">
+    </section>
+
+    <section class="features-table-centre-of-screen">
+        <h3>FEATURES OF <span style="color: #00ff73;">STRING</span></h3>
+        <img src="/s3.png"
+            alt="FEATURES OF ARRAYS - Same data type, Fixed size, Indexed access, Fast access, Efficient memory usage, Easy to loop through, Supports sorting and searching, Temporary storage in RAM, Can be multidimensional, Supported in most programming languages.">
+    </section>
+
+
+    <!-- CSS AND JS DONE WITHOUT RESPONSIVENESS -->
+
+    <!-- <div class="operations">
+        <h3>OPERATIONS IN AN <span style="color: #00ff73;">STRING</span></h3>
+    </div>
+    <section class="operations-centre-of-screen" id="operations-section">
+
+        <div class="left-side-explanation">
+            
+            <h4>INSERTION IN <span style="color: #00ff73;">STRING</span></h4>
+
+        <div class="card">
+            <p><strong>1. AT BEGINNING - </strong>Insert a character at the start of the 
+                <span style="color: #00ff73;">STRING</span>. All characters shift right by one. i.e., at index 0.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+        </div>
+
+        <div class="card">
+            <p><strong>2. AT MIDDLE/GIVEN POSITION - </strong>Insert a character at a specified position in the 
+                <span style="color: #00ff73;">STRING</span>. All characters after it shift right. i.e., index = position.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+        </div>
+
+        <div class="card">
+            <p><strong>3. AT END - </strong>Add a character at the end of the 
+                <span style="color: #00ff73;">STRING</span>. No shifting needed.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
+        </div>
+
+        <h4>DELETION IN <span style="color: #00ff73;">STRING</span></h4>
+
+        <div class="card">
+            <p><strong>1. FROM BEGINNING -</strong> Remove the first character from the 
+                <span style="color: #00ff73;">STRING</span>. All characters shift left by one.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+        </div>
+
+        <div class="card">
+            <p><strong>2. FROM MIDDLE/GIVEN POSITION - </strong>Remove a character from a specific index in the 
+                <span style="color: #00ff73;">STRING</span>. Remaining characters shift left.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+        </div>
+
+        <div class="card">
+            <p><strong>3. FROM END - </strong>Remove the last character from the 
+                <span style="color: #00ff73;">STRING</span>.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
+        </div>
+
+        <h4>SEARCHING IN <span style="color: #00ff73;">STRING</span></h4>
+        <div class="card">
+            <p>Check if a particular character or substring exists within the 
+                <span style="color: #00ff73;">STRING</span>. This is done by scanning from index 0 to end.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
+        </div>
+
+        <h4>SORTING IN <span style="color: #00ff73;">STRING</span></h4>
+        <div class="card">
+            <p>Sort the characters of the <span style="color: #00ff73;">STRING</span> alphabetically or in reverse order.
+            </p>
+            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n²) (using basic sorting like bubble sort)</p>
+        </div>
+
+        </div>
+        <div class="right-side-cheat-sheet">
+            <div class="cheat-sheet-links-codes">
+                <h4>CODE CHEAT SHEETS FOR <span style="color: #00ff73;">STRING</span></h4>
+                <a href="cheatsheets/insertion_string.pdf" download>Download INSERTION CODE Sheet</a>
+                <a href="cheatsheets/deletion_string.pdf" download>Download DELETION CODE Sheet</a>
+                <a href="cheatsheets/searching_string.pdf" download>Download SEARCHING CODE Sheet</a>
+                <a href="cheatsheets/sorting_string.pdf" download>Download SORTING CODE Sheet</a>
+                <a href="cheatsheets/questions_string.pdf" download>Download QUESTIONS Sheet</a>
+                <a href="cheatsheets/resources_string.pdf" download>Download RESOURCES Sheet</a>
+            </div>
+        </div>
+        </div>
+        </div>
+    </section>
+
+    <section class="terminal" id="terminal">
+        <div class="terminal-container">
+            <div class="terminal-header">
+                <div class="terminal-tabs">
+                    <button class="tab-btn active" data-lang="cpp">C++</button>
+                    <button class="tab-btn" data-lang="java">Java</button>
+                    <button class="tab-btn" data-lang="python">Python</button>
+                    <button class="tab-btn" data-lang="javascript">JavaScript</button>
+                </div>
+                <div class="terminal-controls">
+                    <span class="control-dot red"></span>
+                    <span class="control-dot yellow"></span>
+                    <span class="control-dot green"></span>
+                </div>
+            </div>
+            <div class="terminal-body">
+                <pre class="code-display active" id="cpp-code"></pre>
+                <pre class="code-display" id="java-code"></pre>
+                <pre class="code-display" id="python-code"></pre>
+                <pre class="code-display" id="javascript-code"></pre>
+            </div>
+        </div>
+    </section>
+
+    <section class="complexities-chart" id="complexities-chart">
+        <h3><span style="color: #00ff73;">STRING</span> COMPLEXITIES IN A GO...</h3>
+        <img src="/s4.png" alt="COMPLEXITIES - PREVIEW UNAVAILABLE">
+    </section>
+
+    <div class="buttons">
+        <a href="index.html">HOME</a>
+        <a href="#header">TOP OF THE PAGE</a>
+    </div> --> 
+
+    <footer>
+        Fuel Your Coding Journey with the Power of DSA.<br />
+        Queries & Suggestions - harshranjan1111@gmail.com
+    </footer>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function () {
+            // Array code examples
+            const codeExamples = {
+                cpp: `// String declaration and initialization in C++
+#include <iostream>
+#include <string>
+using namespace std;
+
+int main() {
+    // String initialization
+    string str = "Hello";
+
+    // Concatenation
+    str += " World";
+
+    // Accessing characters
+    cout << str[0]; // Output: H
+
+    // Length of string
+    cout << str.length();
+
+    return 0;
+}`,
+
+    java: `// String declaration and initialization in Java
+public class Main {
+    public static void main(String[] args) {
+        // String initialization
+        String str = "Hello";
+
+        // Concatenation
+        str += " World";
+
+        // Accessing characters
+        System.out.println(str.charAt(0)); // Output: H
+
+        // Length of string
+        System.out.println(str.length());
+    }
+}`,
+
+    python: `# String declaration in Python
+str = "Hello"
+
+# Concatenation
+str += " World"
+
+# Accessing characters
+print(str[0])  # Output: H
+
+# Length of string
+print(len(str))`,
+
+    javascript: `// String declaration in JavaScript
+let str = "Hello";
+
+// Concatenation
+str += " World";
+
+// Accessing characters
+console.log(str[0]); // Output: H
+
+// Length of string
+console.log(str.length);`
+};
+
+            // Initialize terminal
+            function initTerminal() {
+                const tabs = document.querySelectorAll('.tab-btn');
+                const codeDisplays = document.querySelectorAll('.code-display');
+
+                // Set initial active tab
+                setActiveTab('cpp');
+
+                // Add click event listeners to tabs
+                tabs.forEach(tab => {
+                    tab.addEventListener('click', () => {
+                        const lang = tab.dataset.lang;
+                        setActiveTab(lang);
+                    });
+                });
+            }
+
+            // Set active tab and display corresponding code
+            function setActiveTab(lang) {
+                // Update active tab button
+                document.querySelectorAll('.tab-btn').forEach(btn => {
+                    btn.classList.remove('active');
+                    if (btn.dataset.lang === lang) {
+                        btn.classList.add('active');
+                    }
+                });
+
+                // Update code display
+                document.querySelectorAll('.code-display').forEach(display => {
+                    display.classList.remove('active');
+                    if (display.id === `${lang}-code`) {
+                        display.classList.add('active');
+                        display.textContent = codeExamples[lang];
+                    }
+                });
+            }
+
+            // Initialize when DOM is loaded
+            initTerminal();
+        });
+        // Smooth scrolling for navigation
+        document.querySelectorAll('.options a').forEach(anchor => {
+            anchor.addEventListener('click', function (e) {
+                // Skip smooth scrolling for home link (let it do normal redirect)
+                if (this.getAttribute('href') === 'index.html') return;
+
+                e.preventDefault();
+
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    window.scrollTo({
+                        top: targetElement.offsetTop - 80, // Adjust for header height
+                        behavior: 'smooth'
+                    });
+
+                    // Update active class
+                    document.querySelectorAll('.options li').forEach(li => {
+                        li.classList.remove('active');
+                    });
+                    this.parentElement.classList.add('active');
+                }
+            });
+        });
+
+        // Highlight current section in nav while scrolling
+        window.addEventListener('scroll', function () {
+            const scrollPosition = window.scrollY + 100;
+
+            document.querySelectorAll('section').forEach(section => {
+                const sectionTop = section.offsetTop;
+                const sectionHeight = section.offsetHeight;
+                const sectionId = section.getAttribute('id');
+
+                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
+                    document.querySelectorAll('.options li').forEach(li => {
+                        li.classList.remove('active');
+                        if (li.querySelector('a')?.getAttribute('href') === `#${sectionId}`) {
+                            li.classList.add('active');
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+
+</html>
