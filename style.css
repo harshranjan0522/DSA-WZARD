@@ -17,7 +17,7 @@ html {
 }
 
 body {
-    background: #0000 url('/image.png') no-repeat center center;
+    background: #0000 url('image.png') no-repeat center center;
     background-size: cover;
     color: var(--light);
     font-family: 'Rajdhani', sans-serif;
