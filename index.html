@@ -2,191 +2,317 @@
 <html lang="en">
 
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DSA-WIZARD | LEARN DSA REAL QUICK</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DSA WIZARD | Learn Data Structures Real Quick</title>
+    <meta name="description" content="An interactive one-stop guide to data structures and algorithms — animated playgrounds, code in C++/Java/Python/JavaScript, complexity charts, cheat sheets and curated practice.">
+    <meta name="theme-color" content="#00ff88">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23050b09'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='monospace' fill='%2300ff88'>{}</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="topic.css">
     <link rel="stylesheet" href="style.css">
-    <!-- AOS Library -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
-
 </head>
 
 <body>
-    <div class="container">
-        <section class="hero" data-aos="fade-down">
-            <h1>DSA WIZARD</h1>
-            <p class="introduction">Explore the universe of <span style="color: #00ff73">DATA STRUCTURES</span>
-                <br>through
-                interactive codes and
-                <span style="color: #00ff73">futuristic learning.</span>
+    <!-- ============================ HERO ============================ -->
+    <section class="home-hero">
+        <div class="hero-slab" aria-hidden="true">
+            <pre class="slab">while (learning) {
+    read();  visualise();  code();
+    if (stuck) revisit(basics);
+    confidence += 1;
+}</pre>
+        </div>
+
+        <div class="shell hero-inner">
+            <span class="eyebrow">one stop for every data structure</span>
+            <h1 class="hero-title">DSA WIZARD</h1>
+            <p class="hero-sub">
+                Explore the universe of <span class="g">data structures</span> through
+                interactive playgrounds, real code and futuristic learning.<br>
+                Right now you are looking at <span class="type-line" data-type="arrays|linked lists|trees|hash tables|stacks|queues|graphs|strings"></span>
             </p>
-        </section>
-        <section>
-            <h2 class="core">Core Structures</h2>
-            <div class="ds-grid" data-aos="fade-in">
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">ARRAY</h3>
-                    <p> A collection of elements of the
-                        same data type, stored in
-                        contiguous memory
-                        locations. Each element in an
-                        array can be accessed using its
-                        index, which is a numerical
-                        identifier indicating its position in
-                        the sequence.</p>
-                    <a href="array.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">LINKED LIST</h3>
-                    <p> A linear collection of data
-                        elements whose order is not
-                        given by their physical placement
-                        in the memory and it consists of
-                        nodes to store data and uses
-                        address to link the nodes.</p>
-                    <a href="linkedlist.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">TREES</h3>
-                    <p> A tree is a hierarchical, non-linear
-                        structure where data is organized
-                        in a parent-child relationship
-                        between nodes. It consists of
-                        nodes connected by edges, with a
-                        root node at the top and branches
-                        extending down to child nodes..</p>
-                    <a href="trees.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">HASH TABLE</h3>
-                    <p> A hash table is a data structure
-                        that uses a hash function to map
-                        keys to values, enabling efficient
-                        storage and retrieval of data. It's
-                        like a dictionary where you can
-                        quickly look up values using their
-                        corresponding keys. </p>
-                    <a href="hashtable.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-            </div>
-            <div class="ds-grid extra-cards hidden" id="extra-cards">
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">STRING</h3>
-                    <p>A string is a sequence of
-                        characters, such as letters,
-                        numbers, symbols, and spaces. It
-                        is a fundamental data type used
-                        to represent text in
-                        programming.</p>
-                    <a href="string.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">STACK</h3>
-                    <p>A stack is a linear data structure
-                        that follows the Last-In, First-Out
-                        (LIFO) principle, meaning the last
-                        element added is the first one to
-                        be removed.</p>
-                    <a href="stack.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">QUEUE</h3>
-                    <p>A queue is a linear data structure
-                        that operates on the principle of
-                        First-In, First-Out (FIFO). This
-                        means elements are added
-                        (enqueued) to the rear end and
-                        removed (dequeued) from the
-                        front end.</p>
-                    <a href="queue.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-                <div class="ds-card" data-aos="zoom-in-up">
-                    <h3 style="color: #00ff73">GRAPHS</h3>
-                    <p>A graph is a non-linear data
-                        structure composed of vertices
-                        (also called nodes) and edges that
-                        connect pairs of vertices. It
-                        represents relationships or
-                        connections between entities,
-                        where vertices hold data and
-                        edges show the connections. </p>
-                    <a href="graphs.html"><button class="explore-btn">EXPLORE</button></a>
-                </div>
-            </div>
-            <button class="deepdive" onclick="toggleCards()" data-aos="zoom-in" id="deepDiveBtn">TAKE A DEEP
-                DIVE</button>
 
-            <section class="cheat-sheets" data-aos="ease-in">
-                <h2 class="core">Cheat Sheets</h2>
-                <div class="cheat-sheet-links">
-                    <a href="cheatsheets/arrays.pdf" download>Download Array Cheat Sheet</a>
-                    <a href="cheatsheets/linkedlist.pdf" download>Download Linked List Cheat Sheet</a>
-                    <a href="cheatsheets/trees.pdf" download>Download Tree Cheat Sheet</a>
-                    <a href="cheatsheets/hashtable.pdf" download>Download Hash Table Cheat Sheet</a>
+            <div class="hero-cta">
+                <a class="btn btn-solid" href="#structures">▸ Start exploring</a>
+                <a class="btn" href="array.html">Begin with arrays</a>
+                <a class="btn btn-ghost" href="cheatsheet.html">⎘ Cheat sheets</a>
+            </div>
+
+            <p class="hero-hint">Press <kbd>Ctrl</kbd> + <kbd>K</kbd> to jump anywhere · <kbd>[</kbd> <kbd>]</kbd> to page between topics</p>
+
+            <div class="hero-metrics">
+                <div class="metric"><b>8</b><small>structures</small></div>
+                <div class="metric"><b>34</b><small>operations</small></div>
+                <div class="metric"><b>4</b><small>languages</small></div>
+                <div class="metric"><b>8</b><small>playgrounds</small></div>
+                <div class="metric"><b>64</b><small>practice problems</small></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== PROGRESS ======================== -->
+    <section class="block-tight">
+        <div class="shell">
+            <div class="progress-wrap" id="progress-wrap" data-reveal="zoom">
+                <div class="ring">
+                    <svg width="96" height="96" viewBox="0 0 96 96">
+                        <circle class="track" cx="48" cy="48" r="40"></circle>
+                        <circle class="fill" id="ring-fill" cx="48" cy="48" r="40"
+                                stroke-dasharray="251.3" stroke-dashoffset="251.3"></circle>
+                    </svg>
+                    <b id="ring-label">0%</b>
                 </div>
-            </section>
-            <div class="why-dsa">
-                <div class="left-side" data-aos="fade-left">
-                    <h2>WHAT <br>ACTUALLY ARE <br><span style="color: #00ff73">DATA <br>STRUCTURES</span><br> AND
-                        <br>WHY ARE THEY <br> <SPAn style="color: #00ff73">SO MUCH <br> IMPORTANT</SPAn> ?
-                    </h2>
-                </div>
-                <div class="right-side" data-aos="fade-right">
-                    <p><strong><span style="color: #00ff73">DATA STRUCTURES</span></strong> are ways of organizing and
-                        storing data in a computer so that it can be accessed and used efficiently.</p>
-                    <p>Think of them like containers or formats — just like you use a bookshelf to organize books or a
-                        folder to organize files.</p><br>
-                    <p><strong><span style="color: #00ff73">Data Structures</span></strong> are the building blocks of
-                        <strong><span style="color: #00ff73">EFFICIENT PROGRAMMING</span></strong>. They help manage and
-                        organize data so operations like storing, retrieving, and processing are done quickly and
-                        effectively.
-                    </p>
+                <div class="progress-copy">
+                    <h3>Your learning trail</h3>
+                    <p id="progress-text">Nothing marked yet. Open any structure and hit
+                        <em>“Mark as mastered”</em> at the bottom — your trail is saved right here in this browser.</p>
+                    <div class="progress-pills" id="progress-pills"></div>
                 </div>
             </div>
-            <div class="tips" data-aos="fade-down">
-                <h3>AFRAID OF <span style="color: #00ff73">DATA STRUCTURES</span> ?</h3>
-                <div class="answer">
-                    <ul>
-                        <li>Don’t just memorize — ask “Why are we using this structure?”</li>
-                        <li>Start with the Basics, Master Recursion.</li>
-                        <li>Use pen & paper, a whiteboard to trace variables and logic.</li>
-                        <li>Watching videos and visual explanations helps deeply.</li>
-                    </ul>
+        </div>
+    </section>
+
+    <!-- ======================= STRUCTURES ======================= -->
+    <section class="block" id="structures">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">core + deep dive</span>
+                <h2 class="section-title">The <span class="g">Structures</span></h2>
+                <p class="section-sub">Every page carries the same eight sections: concept, interactive playground,
+                    operations, code in four languages, complexity chart, practice set, pitfalls and a printable cheat sheet.</p>
+            </div>
+
+            <h3 class="mono" style="text-align:left;font-size:.78rem;letter-spacing:2.4px;color:var(--muted-2);margin-bottom:1.2rem"
+                data-reveal="left">// core structures — start here</h3>
+            <div class="ds-grid" id="grid-core"></div>
+
+            <h3 class="mono" style="text-align:left;font-size:.78rem;letter-spacing:2.4px;color:var(--muted-2);margin:3rem 0 1.2rem"
+                data-reveal="left">// deep dive — build on the core</h3>
+            <div class="ds-grid" id="grid-deep"></div>
+        </div>
+    </section>
+
+    <!-- ========================= ROADMAP ========================= -->
+    <section class="block" id="roadmap">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">suggested order</span>
+                <h2 class="section-title">Learning <span class="g">Roadmap</span></h2>
+                <p class="section-sub">Order matters more than speed. Each step assumes the one before it.</p>
+            </div>
+
+            <div class="roadmap">
+                <div class="rm-step" data-reveal="left">
+                    <span class="rm-dot">01</span>
+                    <h4>Arrays &amp; Strings — the foundation</h4>
+                    <p>Indexing, traversal, the shift cost of insert/delete, and the two patterns that show up
+                        in half of all interview questions: <b>two pointers</b> and <b>sliding window</b>.</p>
+                    <div class="rm-links"><a href="array.html">Array</a><a href="string.html">String</a></div>
+                </div>
+                <div class="rm-step" data-reveal="left" data-delay="80">
+                    <span class="rm-dot">02</span>
+                    <h4>Linked Lists — think in pointers</h4>
+                    <p>Once you can relink nodes without losing the tail, recursion and trees stop feeling scary.
+                        Learn the dummy-head trick and Floyd's slow/fast pointers here.</p>
+                    <div class="rm-links"><a href="ll.html">Linked List</a></div>
+                </div>
+                <div class="rm-step" data-reveal="left" data-delay="160">
+                    <span class="rm-dot">03</span>
+                    <h4>Stacks &amp; Queues — order discipline</h4>
+                    <p>LIFO versus FIFO. Both are simple to implement and unlock monotonic-stack problems,
+                        expression evaluation and BFS.</p>
+                    <div class="rm-links"><a href="stack.html">Stack</a><a href="queue.html">Queue</a></div>
+                </div>
+                <div class="rm-step" data-reveal="left" data-delay="240">
+                    <span class="rm-dot">04</span>
+                    <h4>Hash Tables — trade space for speed</h4>
+                    <p>Frequency counting, seen-before maps and de-duping. The single highest-leverage structure
+                        for turning an O(n²) brute force into O(n).</p>
+                    <div class="rm-links"><a href="hash_table.html">Hash Table</a></div>
+                </div>
+                <div class="rm-step" data-reveal="left" data-delay="320">
+                    <span class="rm-dot">05</span>
+                    <h4>Trees — recursion in a picture</h4>
+                    <p>BST insert and search, the four traversals, height and balance. Everything here is a
+                        two-line recurrence once you see it.</p>
+                    <div class="rm-links"><a href="trees.html">Trees</a></div>
+                </div>
+                <div class="rm-step" data-reveal="left" data-delay="400">
+                    <span class="rm-dot">06</span>
+                    <h4>Graphs — the general case</h4>
+                    <p>Trees are graphs without cycles; grids are graphs in disguise. Master BFS and DFS, then
+                        shortest paths and topological sort follow.</p>
+                    <div class="rm-links"><a href="graphs.html">Graphs</a></div>
+                </div>
+                <div class="rm-step" data-reveal="left" data-delay="480">
+                    <span class="rm-dot">07</span>
+                    <h4>Then: practice on a timer</h4>
+                    <p>Every topic page ends with eight curated problems, easy → hard, each with a one-line hint.
+                        Solve without the hint first; read it only when you are properly stuck.</p>
+                    <div class="rm-links"><a href="cheatsheet.html">All cheat sheets</a></div>
                 </div>
             </div>
-        </section>
-    </div>
-    <footer>
-        Fuel Your Coding Journey with the Power of DSA.<br />
-        Queries & Suggestions - harshranjan1111@gmail.com
-    </footer>
-    <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+        </div>
+    </section>
+
+    <!-- ========================== WHY ========================== -->
+    <section class="block" id="why">
+        <div class="shell">
+            <div class="why-grid">
+                <h2 class="why-heading" data-reveal="left">
+                    What actually <span class="g">are</span><br>data structures<br>and why do they<br>
+                    <span class="g">matter so much</span>?
+                </h2>
+                <div class="why-panel" data-reveal="right">
+                    <p><b>Data structures</b> are ways of organising and storing data in a computer so that it can be
+                        accessed and used efficiently.</p>
+                    <p>Think of them as containers with rules. A bookshelf, a numbered locker row, a queue at a counter,
+                        a family tree — each one makes some actions cheap and others expensive.</p>
+                    <p>Picking the right container <em>is</em> the optimisation. Swapping a list scan for a hash lookup
+                        turns 10,000,000 operations into 10,000 — same code shape, a thousand times faster.</p>
+                    <p>That is the whole game: know what each structure makes cheap, and reach for it on purpose.</p>
+                </div>
+            </div>
+
+            <div class="impact-grid">
+                <div class="impact" data-reveal="zoom"><b>O(n) → O(1)</b><span>A hash map replaces a repeated linear scan.</span></div>
+                <div class="impact" data-reveal="zoom" data-delay="70"><b>O(n) → O(log n)</b><span>Binary search on sorted data, or a balanced BST.</span></div>
+                <div class="impact" data-reveal="zoom" data-delay="140"><b>O(n²) → O(n)</b><span>A monotonic stack or a sliding window instead of nested loops.</span></div>
+                <div class="impact" data-reveal="zoom" data-delay="210"><b>Interviews</b><span>Nearly every question is a structure choice wearing a story.</span></div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================== TIPS ========================== -->
+    <section class="block" id="tips">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">afraid of data structures?</span>
+                <h2 class="section-title">How to actually <span class="g">learn</span> this</h2>
+                <p class="section-sub">Six habits that separate people who "did the course" from people who can use it.</p>
+            </div>
+
+            <div class="tips-grid">
+                <div class="tip" data-reveal="zoom"><span class="tip-n">01</span>
+                    <h4>Ask "why this structure?"</h4>
+                    <p>Never memorise an operation. Ask what it makes cheap and what it makes expensive — that single
+                        question is the whole subject.</p>
+                </div>
+                <div class="tip" data-reveal="zoom" data-delay="70"><span class="tip-n">02</span>
+                    <h4>Trace it by hand</h4>
+                    <p>Pen, paper, five elements. Write down every pointer and index at every step. Debugging in your
+                        head is how bugs survive.</p>
+                </div>
+                <div class="tip" data-reveal="zoom" data-delay="140"><span class="tip-n">03</span>
+                    <h4>Master recursion early</h4>
+                    <p>Base case, one step, trust the rest. Trees, graphs, backtracking and divide-and-conquer all
+                        collapse into easy problems afterwards.</p>
+                </div>
+                <div class="tip" data-reveal="zoom" data-delay="210"><span class="tip-n">04</span>
+                    <h4>Implement before you import</h4>
+                    <p>Write the stack, the queue and the hash table once from scratch. You will never misuse the
+                        library version again.</p>
+                </div>
+                <div class="tip" data-reveal="zoom" data-delay="280"><span class="tip-n">05</span>
+                    <h4>Watch it move</h4>
+                    <p>Use the playground on every page. Seeing a pointer jump or a bucket collide sticks far longer
+                        than reading the sentence about it.</p>
+                </div>
+                <div class="tip" data-reveal="zoom" data-delay="350"><span class="tip-n">06</span>
+                    <h4>Redo, don't reread</h4>
+                    <p>Revisit a solved problem a week later from a blank file. If it flows, you learned it; if it
+                        doesn't, you only recognised it.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- ========================== CTA ========================== -->
+    <section class="block-tight">
+        <div class="shell">
+            <div class="cta-strip" data-reveal="zoom">
+                <h2>Ready to <span class="g">stop guessing</span>?</h2>
+                <p>Pick a structure, poke the playground until the animation makes sense, then read the code in your
+                    language of choice. That loop is the entire method.</p>
+                <div class="hero-cta">
+                    <a class="btn btn-solid" href="array.html">▸ Start with arrays</a>
+                    <a class="btn btn-ghost" href="graphs.html">Jump to graphs</a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="topics.js"></script>
     <script>
-        function toggleCards() {
-            const extraCards = document.getElementById('extra-cards');
-            const button = document.getElementById('deepDiveBtn');
+        /* ---- render the structure grid straight from the topic registry ---- */
+        (function () {
+            var T = window.DSA.topics;
+            var learned = (function () {
+                try { return (localStorage.getItem('dsa:progress') || '').split(',').filter(Boolean); }
+                catch (e) { return []; }
+            })();
 
-            if (extraCards.classList.contains('hidden')) {
-                extraCards.classList.remove('hidden');
-                extraCards.classList.add('fade-in');
-                button.innerText = "IT'S TOO MUCH ^_^";
-            } else {
-                extraCards.classList.add('hidden');
-                button.innerText = "TAKE A DEEP DIVE";
+            function bigoClass(v) {
+                if (/O\(1\)/.test(v)) return 'good';
+                if (/log n/.test(v)) return 'ok';
+                if (/O\(n\)|O\(V\+E\)/.test(v)) return 'bad';
+                if (/n·m|n²/.test(v)) return 'worst';
+                return '';
             }
-        }
 
-        AOS.init({
-            duration: 1200, // Animation duration in ms
-            offset: 120,
-            once: false // Animation runs only once
-        });
+            function card(t, i) {
+                var ops = Object.keys(t.stats).map(function (k) {
+                    return '<span class="op-pair"><small>' + k + '</small>' +
+                        '<span class="bigo ' + bigoClass(t.stats[k]) + '">' + t.stats[k] + '</span></span>';
+                }).join('');
+                return '<article class="ds-card tilt' + (learned.indexOf(t.id) > -1 ? ' learned' : '') +
+                    '" data-reveal="flip" data-delay="' + (i * 70) + '" data-tilt="8">' +
+                    '<span class="ds-done" title="Marked as mastered">✓</span>' +
+                    '<span class="ds-icon">' + t.icon + '</span>' +
+                    '<h3>' + t.name + '</h3>' +
+                    '<span class="ds-tag">' + t.tag + '</span>' +
+                    '<p>' + t.blurb + '</p>' +
+                    '<div class="ds-ops">' + ops + '</div>' +
+                    '<a class="explore-btn" href="' + t.file + '">Explore →</a>' +
+                    '</article>';
+            }
+
+            document.getElementById('grid-core').innerHTML =
+                T.filter(function (t) { return t.tier === 'core'; }).map(card).join('');
+            document.getElementById('grid-deep').innerHTML =
+                T.filter(function (t) { return t.tier !== 'core'; }).map(card).join('');
+
+            /* ---- progress ring ---- */
+            var pct = Math.round((learned.length / T.length) * 100);
+            var circ = 2 * Math.PI * 40;
+            var fill = document.getElementById('ring-fill');
+            fill.setAttribute('stroke-dasharray', circ.toFixed(1));
+            fill.setAttribute('stroke-dashoffset', circ.toFixed(1));
+            document.getElementById('ring-label').textContent = pct + '%';
+            setTimeout(function () {
+                fill.setAttribute('stroke-dashoffset', (circ * (1 - pct / 100)).toFixed(1));
+            }, 400);
+
+            document.getElementById('progress-pills').innerHTML = T.map(function (t) {
+                var done = learned.indexOf(t.id) > -1;
+                return '<span class="' + (done ? 'done' : '') + '">' + (done ? '✓ ' : '') + t.name + '</span>';
+            }).join('');
+
+            if (learned.length) {
+                document.getElementById('progress-text').innerHTML =
+                    '<b>' + learned.length + ' of ' + T.length + '</b> structures marked as mastered. ' +
+                    (learned.length === T.length
+                        ? 'That is the whole set — go back and redo the practice sets from a blank file. 🎉'
+                        : 'Keep going: ' + T.filter(function (t) { return learned.indexOf(t.id) < 0; })[0].name +
+                          ' is next in the roadmap.');
+            }
+        })();
     </script>
-
+    <script src="wizard.js"></script>
 </body>
 
 </html>

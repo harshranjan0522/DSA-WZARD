@@ -1,0 +1,215 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cheat Sheets | DSA WIZARD</title>
+    <meta name="description" content="Printable DSA cheat sheets — syntax, templates and complexity charts for arrays, linked lists, trees, hash tables, strings, stacks, queues and graphs in C++, Java, Python and JavaScript.">
+    <meta name="theme-color" content="#00ff88">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23050b09'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='monospace' fill='%2300ff88'>{}</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="topic.css">
+    <style>
+        .cs-hero { padding: 3.6rem 0 1.6rem; text-align: center; }
+        .cs-hero h1 {
+            font-size: clamp(2rem, 6vw, 3.6rem);
+            color: var(--primary);
+            text-shadow: 0 0 20px rgba(0, 255, 136, .45), 3px 3px 0 #007a41;
+            transform: perspective(700px) rotateX(7deg);
+        }
+
+        .filter-bar {
+            position: sticky;
+            top: var(--nav-h);
+            z-index: 60;
+            display: flex;
+            flex-wrap: wrap;
+            gap: .4rem;
+            justify-content: center;
+            padding: .9rem 1rem;
+            margin: 2rem 0 2.6rem;
+            background: rgba(4, 9, 7, .92);
+            backdrop-filter: blur(12px);
+            -webkit-backdrop-filter: blur(12px);
+            border-top: 1px solid var(--line-soft);
+            border-bottom: 1px solid var(--line-soft);
+        }
+
+        .fpill {
+            display: inline-flex;
+            align-items: center;
+            gap: .4rem;
+            padding: .42rem .9rem;
+            border: 1px solid var(--line);
+            border-radius: 100px;
+            background: rgba(0, 255, 136, .05);
+            color: var(--muted);
+            font-family: var(--font-mono);
+            font-size: .76rem;
+            cursor: pointer;
+            transition: all .22s ease;
+        }
+        .fpill:hover { color: var(--primary); border-color: var(--primary); transform: translateY(-2px); }
+        .fpill.on {
+            background: var(--primary);
+            color: #04120b;
+            border-color: var(--primary);
+            box-shadow: 0 0 18px -4px var(--primary);
+        }
+
+        .cs-block { margin-bottom: 3.4rem; }
+        .cs-block.hide { display: none; }
+
+        .cs-head {
+            display: flex;
+            align-items: center;
+            gap: .9rem;
+            flex-wrap: wrap;
+            margin-bottom: 1.3rem;
+            padding-bottom: .8rem;
+            border-bottom: 1px solid var(--line);
+        }
+        .cs-head .ic {
+            width: 40px; height: 40px;
+            display: grid;
+            place-items: center;
+            border-radius: 12px;
+            background: rgba(0, 255, 136, .14);
+            border: 1px solid var(--line);
+            font-size: 1.2rem;
+            color: var(--primary);
+        }
+        .cs-head h2 { font-size: 1.05rem; letter-spacing: 2px; color: var(--primary); text-align: left; }
+        .cs-head small { font-family: var(--font-mono); font-size: .72rem; color: var(--muted-2); display: block; }
+        .cs-head a { margin-left: auto; }
+
+        .cx-fold { margin-top: 1.2rem; }
+        .cx-fold > summary {
+            cursor: pointer;
+            list-style: none;
+            font-family: var(--font-mono);
+            font-size: .8rem;
+            color: var(--primary);
+            padding: .7rem 1rem;
+            border: 1px dashed var(--line);
+            border-radius: var(--r-sm);
+            background: rgba(0, 255, 136, .05);
+        }
+        .cx-fold > summary::-webkit-details-marker { display: none; }
+        .cx-fold[open] > summary { border-style: solid; margin-bottom: 1rem; }
+        .cx-fold > summary::before { content: '▸ '; }
+        .cx-fold[open] > summary::before { content: '▾ '; }
+
+        @media print {
+            .filter-bar, .cs-hero .hero-cta, .cs-head a { display: none !important; }
+            .cs-block.hide { display: block !important; }
+            .cs-block { break-after: page; }
+            .cx-fold > summary { display: none; }
+            .cx-fold > *:not(summary) { display: block !important; }
+        }
+    </style>
+</head>
+
+<body data-sections="#sheets|Sheets,#howto|How to use">
+
+    <section class="cs-hero">
+        <div class="shell">
+            <span class="eyebrow">printable reference</span>
+            <h1>DSA CHEAT SHEETS</h1>
+            <p class="section-sub" style="margin-top:1.2rem">
+                Every structure's syntax, templates and complexity chart on one page — in C++, Java, Python and
+                JavaScript. Filter to what you need, then print it or save it as a PDF.
+            </p>
+            <div class="hero-cta">
+                <button class="btn btn-solid" type="button" onclick="window.print()">⎙ Print / save as PDF</button>
+                <a class="btn btn-ghost" href="index.html">← Back to home</a>
+            </div>
+        </div>
+    </section>
+
+    <div class="filter-bar" id="filter-bar"></div>
+
+    <section id="sheets">
+        <div class="shell" id="sheet-host"></div>
+    </section>
+
+    <section class="block" id="howto">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">how to use this</span>
+                <h2 class="section-title">Make it <span class="g">stick</span></h2>
+            </div>
+            <div class="tips-grid" style="display:grid;grid-template-columns:repeat(auto-fit,minmax(258px,1fr));gap:1.1rem">
+                <div class="cheat-card" data-reveal="zoom">
+                    <h4>Cover and recall</h4>
+                    <div class="cheat-row"><span class="ck">step 1</span><code>Read one card.</code></div>
+                    <div class="cheat-row"><span class="ck">step 2</span><code>Cover it, write it from memory.</code></div>
+                    <div class="cheat-row"><span class="ck">step 3</span><code>Compare. Repeat only what you missed.</code></div>
+                </div>
+                <div class="cheat-card" data-reveal="zoom" data-delay="70">
+                    <h4>One language first</h4>
+                    <div class="cheat-row"><span class="ck">why</span><code>Fluency beats breadth in an interview.</code></div>
+                    <div class="cheat-row"><span class="ck">then</span><code>Read the other three for contrast — the differences are the lesson.</code></div>
+                </div>
+                <div class="cheat-card" data-reveal="zoom" data-delay="140">
+                    <h4>Templates, not trivia</h4>
+                    <div class="cheat-row"><span class="ck">learn</span><code>two pointers · sliding window · BFS · monotonic stack</code></div>
+                    <div class="cheat-row"><span class="ck">skip</span><code>Anything your editor autocompletes for you.</code></div>
+                </div>
+                <div class="cheat-card" data-reveal="zoom" data-delay="210">
+                    <h4>Print landscape</h4>
+                    <div class="cheat-row"><span class="ck">tip</span><code>Filter to 2–3 topics before printing to keep code lines unwrapped.</code></div>
+                    <div class="cheat-row"><span class="ck">tip</span><code>Complexity tables print expanded even when collapsed here.</code></div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="topics.js"></script>
+    <script>
+        (function () {
+            var T = window.DSA.topics;
+            var host = document.getElementById('sheet-host');
+            var bar = document.getElementById('filter-bar');
+
+            host.innerHTML = T.map(function (t) {
+                return '<div class="cs-block" data-block="' + t.id + '" id="cs-' + t.id + '">' +
+                    '<div class="cs-head">' +
+                    '<span class="ic">' + t.icon + '</span>' +
+                    '<div><h2>' + t.name + '</h2><small>' + t.tag + '</small></div>' +
+                    '<a class="btn btn-sm btn-ghost" href="' + t.file + '">Full page →</a>' +
+                    '</div>' +
+                    '<div data-widget="cheatsheet" data-for="' + t.id + '"></div>' +
+                    '<details class="cx-fold"><summary>Complexity chart — ' + t.name + '</summary>' +
+                    '<div data-widget="complexity" data-for="' + t.id + '"></div></details>' +
+                    '</div>';
+            }).join('');
+
+            bar.innerHTML = '<button type="button" class="fpill on" data-f="all">◈ All topics</button>' +
+                T.map(function (t) {
+                    return '<button type="button" class="fpill" data-f="' + t.id + '">' + t.icon + ' ' + t.name + '</button>';
+                }).join('');
+
+            bar.addEventListener('click', function (e) {
+                var b = e.target.closest ? e.target.closest('.fpill') : null;
+                if (!b) return;
+                var f = b.getAttribute('data-f');
+                Array.prototype.forEach.call(bar.children, function (c) { c.classList.toggle('on', c === b); });
+                Array.prototype.forEach.call(host.children, function (block) {
+                    block.classList.toggle('hide', f !== 'all' && block.getAttribute('data-block') !== f);
+                });
+                if (f !== 'all') {
+                    var target = document.getElementById('cs-' + f);
+                    if (target) window.scrollTo({ top: target.offsetTop - 150, behavior: 'smooth' });
+                }
+            });
+        })();
+    </script>
+    <script src="wizard.js"></script>
+</body>
+
+</html>

@@ -4,994 +4,270 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>STACK</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="array.css"> -->
-    <style>
-        :root {
-            --primary: #00ff88;
-            --secondary: #003b27;
-            --dark: #0a0a0a;
-            --light: #e0e0e0;
-            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0000 url('image.png') no-repeat center center;
-            background-size: cover;
-            color: var(--light);
-            font-family: 'Rajdhani', Orbitron;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        /* Navigation Bar Styles */
-        header {
-            background-color: #00000084;
-            /* Dark blue background */
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-                0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo h1 {
-            color: #00ff73;
-            /* Bright green accent */
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            margin: 0;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(0, 255, 115, 0.3);
-        }
-
-        .options ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .options li {
-            color: #e2e8f0;
-            /* Light gray text */
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .options li:hover {
-            color: #00ff73;
-            /* Green on hover */
-            transform: translateY(-2px);
-        }
-
-        /* Animated underline effect */
-        .options li::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #00ff73;
-            transition: width 0.3s ease;
-        }
-
-        .options li:hover::after {
-            width: 100%;
-        }
-
-        /* Active tab indicator */
-        .options li.active {
-            color: #00ff73;
-        }
-
-        .options li.active::after {
-            width: 100%;
-        }
-
-
-
-        /* WRITE CODE HERE */
-        .array-intro h1 {
-            font-size: 7rem;
-            font-weight: 800;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            margin: 30px auto;
-        }
-
-        .flex-centre-divided-into-left-and-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-
-            margin-top: 100px;
-        }
-
-        .flex-centre-divided-into-left-and-right .what-is-array-left-side {
-            display: block;
-            width: 550px;
-            background-color: #00ff731b;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 0px 30px;
-        }
-
-        .flex-centre-divided-into-left-and-right .what-is-array-left-side p {
-            text-align: left;
-            line-height: 25px;
-            letter-spacing: 0.3px;
-        }
-
-        .flex-centre-divided-into-left-and-right .visual-structure-right-side img {
-            width: 600px;
-            margin: 0;
-        }
-
-        @keyframes pulse {
-            0% {
-                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-            }
-
-            50% {
-                text-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
-            }
-
-            100% {
-                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-            }
-        }
-
-        .real-life-example-centre {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 160px auto;
-            flex-direction: column;
-        }
-
-        .real-life-example-centre h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            margin: 20px auto;
-        }
-
-        .features-table-centre-of-screen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0px auto;
-            flex-direction: column;
-            margin-bottom: 70px;
-        }
-
-        .features-table-centre-of-screen h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            margin: 30px auto;
-
-        }
-
-        .features-table-centre-of-screen img {
-            width: 600px;
-        }
-
-        .operations h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin: 20px auto;
-            margin-top: 150px;
-        }
-
-        .operations-centre-of-screen {
-            display: flex;
-            justify-content: center;
-            /* Changed from space-around */
-            align-items: flex-start;
-            /* Changed from center for better card alignment */
-            flex-direction: row;
-            margin: 100px auto;
-            /* Centered horizontally */
-            max-width: 1200px;
-            /* Changed from fixed width */
-            width: 90%;
-            /* More responsive */
-            gap: 40px;
-            /* Consistent spacing between columns */
-            padding: 20px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation {
-            display: block;
-            width: 900px;
-            background-color: #00ff731b;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 0px 30px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation h4 {
-            font-size: large;
-            text-align: left;
-            margin-top: 30px;
-            margin-bottom: 20px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation p {
-            text-align: left;
-            margin: 4px 0px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation .card {
-            background: #00ff730f;
-            padding: 20px 20px;
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet {
-            display: block;
-            width: 500px;
-            position: sticky;
-
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes h4 {
-            margin-bottom: 50px;
-            text-shadow: var(--glow);
-            font-weight: bolder;
-            font-size: x-large;
-            animation: pulse 1s infinite alternate;
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes a {
-            background-color: #00ff73;
-            display: flex;
-            font-weight: 600;
-            letter-spacing: 1px;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            width: 300px;
-            height: 70px;
-            margin: 70px auto;
-            transition: 0.1s ease-in;
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes a:hover {
-            transform: scale(1.05);
-            cursor: pointer;
-            box-shadow: var(--glow);
-            background-color: #00813a;
-        }
-
-        .complexities-chart {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-bottom: 100px;
-        }
-
-        .complexities-chart h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin: 20px auto;
-            margin-top: 150px;
-        }
-
-        .buttons a {
-            background-color: #00ff73;
-            display: flex;
-            font-weight: 600;
-            letter-spacing: 1px;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            width: 250px;
-            height: 60px;
-            margin: 70px auto;
-            transition: 0.1s ease-in;
-        }
-
-        .buttons a:hover {
-            transform: scale(1.02);
-            cursor: pointer;
-            background-color: #00813a;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        /* Cheat Sheet Styles */
-        .cheat-sheets {
-            margin-top: 12rem;
-            margin-bottom: 8rem;
-            text-align: center;
-        }
-
-        .cheat-sheet-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .cheat-sheet-links a {
-            background-color: var(--primary);
-            color: black;
-            font-weight: bold;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            text-decoration: none;
-            box-shadow: 0 0 10px var(--primary);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .cheat-sheet-links a:hover {
-            background-color: #00ff884c;
-            transform: scale(1.05);
-        }
-
-        .why-dsa {
-            text-align: center;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 4rem;
-            height: 100vh;
-            flex-direction: row;
-            box-sizing: border-box;
-            width: auto;
-        }
-
-        .left-side {
-            flex: 1;
-            font-size: 2rem;
-            line-height: 1.5;
-            font-weight: bold;
-            text-transform: uppercase;
-            width: 400px;
-            text-align: left;
-            margin-right: 40px;
-        }
-
-        .right-side {
-            flex: 1;
-            background-color: rgba(0, 255, 136, 0.15);
-            /* green transparent */
-            padding: 2rem;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: white;
-            font-weight: 500;
-            width: min-content;
-            line-height: 40px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.7);
-            ;
-            color: var(--primary);
-            font-size: 1rem;
-            margin-top: 3rem;
-            border: none;
-        }
-
-        /* Responsive adjustments */
-
-        /* TERMINAL STYLES */
-        .terminal {
-            margin: 4rem auto;
-            max-width: 850px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 255, 115, 0.15);
-            border: 1px solid rgba(0, 255, 115, 0.2);
-            background: #0a0f17;
-        }
-
-        .terminal-container {
-            background: #0a0f17;
-            color: #e0e0e0;
-            font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .terminal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.8rem 1.5rem;
-            border-bottom: 1px solid rgba(0, 255, 115, 0.1);
-        }
-
-        .terminal-tabs {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        .tab-btn {
-            background: transparent;
-            color: #7a7a8c;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab-btn::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #00ff73;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .tab-btn:hover {
-            color: #d4d4d4;
-        }
-
-        .tab-btn.active {
-            color: #00ff73;
-            background: rgba(0, 255, 115, 0.1);
-        }
-
-        .tab-btn.active::before {
-            transform: scaleX(1);
-        }
-
-        .terminal-controls {
-            display: flex;
-            gap: 0.6rem;
-        }
-
-        .control-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .control-dot:hover {
-            opacity: 1;
-        }
-
-        .red {
-            background: #ff5f56;
-        }
-
-        .yellow {
-            background: #ffbd2e;
-        }
-
-        .green {
-            background: #27c93f;
-        }
-
-        .terminal-body {
-            padding: 1.8rem;
-            min-height: 280px;
-            max-height: 400px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: #00ff73 #0a0f17;
-        }
-
-        .terminal-body::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .terminal-body::-webkit-scrollbar-track {
-            background: #0a0f17;
-        }
-
-        .terminal-body::-webkit-scrollbar-thumb {
-            background-color: #00ff73;
-            border-radius: 3px;
-        }
-
-        .code-display {
-            display: none;
-            margin: 0;
-            white-space: pre-wrap;
-            tab-size: 4;
-        }
-
-        .code-display.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0.5;
-                transform: translateY(5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .code-comment {
-            color: #6a9955;
-            font-style: italic;
-        }
-
-        .code-keyword {
-            color: #569cd6;
-            font-weight: bold;
-        }
-
-        .code-string {
-            color: #ce9178;
-        }
-
-        .code-function {
-            color: #dcdcaa;
-        }
-
-        .code-number {
-            color: #b5cea8;
-        }
-
-        .code-operator {
-            color: #d4d4d4;
-            font-weight: bold;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .terminal {
-                margin: 2rem auto;
-                border-radius: 8px;
-            }
-
-            .terminal-header {
-                padding: 0.6rem 1rem;
-            }
-
-            .terminal-tabs {
-                gap: 0.4rem;
-            }
-
-            .tab-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .terminal-body {
-                padding: 1.2rem;
-                min-height: 220px;
-            }
-        }
-    </style>
-    <!-- AOS Library -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <title>STACK | DSA WIZARD</title>
+    <meta name="description" content="Stacks explained — LIFO order, push, pop and peek in O(1), array vs linked implementation, balanced brackets and monotonic stacks, with an interactive playground and code in four languages.">
+    <meta name="theme-color" content="#00ff88">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23050b09'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='monospace' fill='%2300ff88'>{}</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="topic.css">
 </head>
 
-<body>
-    <header id="header">
-        <nav>
-            <div class="logo">
-                <h1>DSA WIZARD</h1>
-            </div>
-            <div class="options">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="#operations-section">OPERATIONS</a></li>
-                    <li><a href="#complexities-chart">COMPLEXITIES</a></li>
-                    <li><a href="#terminal">TERMINAL</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <section class="array-intro">
-        <h1><span style="color: #00ff73;">UNDER MAINTENANCE</span></h1>
-        <!-- <div class="flex-centre-divided-into-left-and-right">
-            <div class="what-is-array-left-side">
-                <p>A <span style="color: #00ff73;">STRING</span> is a sequence of
-                    characters, such as letters,
-                    numbers, symbols, and spaces. It
-                    is a fundamental data type used
-                    to represent text in
-                    programming.
-                    <br><br>
-                    A string is a sequence of characters. It is used to store and manipulate text.
-                    <br><br>
-                    <strong>Key Properties of Strings:</strong>
-                    Characters inside quotes: "hello" or 'a' <br>
-                    Immutable in many languages (like C++ std::string and Python) <br>
-                    Indexed: You can access characters by position (starting at index 0) <br>
+<body data-topic="stack">
 
-                </p>
-                <span style="color: #00ff73;">TECHNICAL</span> DEFINITION -
-                An <span style="color: #00ff73;">STRING</span> stores multiple values under a single name.
-                All values must be of the same type (like all numbers or all letters).
-                Each item has an index (starting from 0).
-                </p>
+    <!-- ============================ HERO ============================ -->
+    <section class="topic-hero">
+        <div class="shell hero-grid">
+            <div>
+                <h1 class="topic-title"><small>deep dive · 06 of 08</small>STACK</h1>
+                <p class="topic-lede">A linear structure that follows <b>Last-In, First-Out</b> order: the most recently pushed element is the first one removed. Only one end is open — the <b>top</b> — and that single restriction is what makes every core operation <b>O(1)</b>.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-solid" href="#playground">▸ Open the playground</a>
+                    <a class="btn btn-ghost" href="#code">&lt;/&gt; Jump to code</a>
+                </div>
+                <div data-widget="stats"></div>
             </div>
-            <div class="visual-structure-right-side">
-                <img src="/s1.png" alt="INITIALIZATION - int arr[size] = {comma separated values};"
-                    srcset="">
+            <div data-reveal="right">
+                <div class="panel prose ticked" data-reveal="right">
+                    <h4>The whole interface</h4>
+                    <p class="mono" style="color:var(--primary);line-height:2.1">push(x)  →  put x on top<br>pop()    →  remove &amp; return the top<br>peek()   →  read the top, keep it<br>isEmpty()→  top == -1 ?<br>size()   →  top + 1</p>
+                    <div class="callout"><b>That is it.</b> Four or five methods, all O(1), and no way to reach into the middle. The power comes from the restriction, not from features.</div>
+                    <p>You are already using one right now: every function call your program makes is pushed onto the <b>call stack</b> and popped when it returns.</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="real-life-example-centre">
-        <h3>REAL LIFE EXAMPLE OF <span style="color: #00ff73;">STRING</span></h3>
-        <img src="/s2.png" alt="REAL LIFE EXAMPLE - fruits = [name of fruits separated by commas];">
+    <!-- =========================== CONCEPT =========================== -->
+    <section class="block" id="concept">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">the concept</span>
+                <h2 class="section-title">What is a <span class="g">STACK</span>?</h2>
+                <p class="section-sub">One open end, two operations, and a surprising number of problems that collapse into it.</p>
+            </div>
+
+            <div class="split">
+                <div class="panel ticked prose" data-reveal="left">
+                    <h4>In plain english</h4>
+                    <p>Picture a stack of plates. You add a plate on top, and you take a plate from the top. You never pull one out of the middle.</p>
+                    <p>The <b>last</b> plate you put down is the <b>first</b> one you pick up — that is Last-In First-Out, LIFO.</p>
+                    <p>Because only the top ever moves, adding and removing are instant: no shifting, no searching, no scanning.</p>
+                    <p>Anything that needs "the most recent thing first" is a stack: undo history, the browser back button, matching brackets in an editor, and recursion itself.</p>
+                </div>
+                <div class="panel ticked prose" data-reveal="right">
+                    <h4>Technically speaking</h4>
+                    <p>A stack is an abstract data type with a single access point. Implement it over an <b>array</b> (fast, cache friendly, fixed or doubling capacity) or a <b>linked list</b> (no limit, one allocation per push).</p>
+                    <p>An array-backed stack keeps a <code>top</code> index starting at <code>-1</code>. <code>push</code> is <code>arr[++top] = x</code>; <code>pop</code> is <code>return arr[top--]</code>. Both are O(1).</p>
+                    <p>Two failure states matter: <b>overflow</b> (push onto a full fixed array) and <b>underflow</b> (pop from an empty stack). Guard with <code>isFull()</code> and <code>isEmpty()</code> — an unguarded pop is the classic crash.</p>
+                    <p>The <b>monotonic stack</b> is the pattern that turns a family of O(n²) problems into O(n): keep indices in increasing or decreasing order, and resolve them the moment a violating element arrives. Each index is pushed and popped at most once.</p>
+                </div>
+            </div>
+
+            <div class="split" style="margin-top:2rem">
+                <div class="panel prose" data-reveal="left" data-delay="80">
+                    <h4>Real-life examples — LIFO everywhere</h4>
+                    <div class="analogy">
+                        <div class="analogy-step"><span class="n">01</span><span><b>Plates in a canteen:</b> the last washed plate sits on top and gets taken first.</span></div>
+                        <div class="analogy-step"><span class="n">02</span><span><b>Browser history:</b> "back" returns to the page you visited most recently, not the first one.</span></div>
+                        <div class="analogy-step"><span class="n">03</span><span><b>Ctrl+Z:</b> undo reverses your latest action; the editor keeps an undo stack and a redo stack.</span></div>
+                        <div class="analogy-step"><span class="n">04</span><span><b>The call stack:</b> <code>main</code> calls <code>a</code> calls <code>b</code>; <code>b</code> finishes first and pops. Infinite recursion is literally a stack overflow.</span></div>
+                        <div class="analogy-step"><span class="n">05</span><span><b>Bracket matching:</b> your editor pushes every opener and pops on the matching closer — leftovers mean unbalanced code.</span></div>
+                        <div class="analogy-step"><span class="n">06</span><span><b>Bangles on a wrist:</b> the last one slipped on is the first one that comes off.</span></div>
+                    </div>
+                </div>
+                <div data-reveal="right" data-delay="80">
+                <div class="panel prose" data-reveal="right">
+                    <h4>Stack vs Queue in one line</h4>
+                    <p><b>Stack (LIFO)</b> — newest out first. Use it when recency matters: undo, backtracking, depth-first search, expression evaluation.</p>
+                    <p><b>Queue (FIFO)</b> — oldest out first. Use it when fairness or order matters: scheduling, buffering, breadth-first search.</p>
+                    <p>Swap a stack for a queue in a graph traversal and DFS becomes BFS. Nothing else in the code changes — that is how tightly the structure controls the behaviour.</p>
+                    <div class="callout"><b>Interview tell —</b> "most recent", "nested", "matching", "undo", "next greater" ⇒ reach for a stack.</div>
+                </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="features-table-centre-of-screen">
-        <h3>FEATURES OF <span style="color: #00ff73;">STRING</span></h3>
-        <img src="/s3.png"
-            alt="FEATURES OF ARRAYS - Same data type, Fixed size, Indexed access, Fast access, Efficient memory usage, Easy to loop through, Supports sorting and searching, Temporary storage in RAM, Can be multidimensional, Supported in most programming languages.">
+    <!-- ========================= PLAYGROUND ========================= -->
+    <section class="block" id="playground">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">interactive</span>
+                <h2 class="section-title"><span class="g">STACK</span> Playground</h2>
+                <p class="section-sub">Push and pop a live stack and watch LIFO play out from the top down. Fill it past capacity to trigger a real overflow, then empty it to hit underflow — the two errors every implementation must guard.</p>
+            </div>
+            <div data-viz="stack" data-reveal="zoom"></div>
+        </div>
     </section>
 
+    <!-- ========================== FEATURES ========================== -->
+    <section class="block" id="features">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">properties</span>
+                <h2 class="section-title">Features of a <span class="g">STACK</span></h2>
+                <p class="section-sub">A deliberately tiny interface, and what that restriction buys you.</p>
+            </div>
+            <div data-widget="features"></div>
 
-    <!-- CSS AND JS DONE WITHOUT RESPONSIVENESS -->
+        </div>
+    </section>
 
-    <!-- <div class="operations">
-        <h3>OPERATIONS IN AN <span style="color: #00ff73;">STRING</span></h3>
+    <!-- =========================== TYPES =========================== -->
+    <section class="block" id="types">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">variants</span>
+                <h2 class="section-title">Kinds of <span class="g">STACK</span></h2>
+                <p class="section-sub">Four ways to build one, depending on whether you want a hard capacity or none.</p>
+            </div>
+            <div data-widget="types"></div>
+        </div>
+    </section>
+
+    <!-- ========================= OPERATIONS ========================= -->
+    <section class="block" id="operations">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">what you can do with it</span>
+                <h2 class="section-title">Operations on a <span class="g">STACK</span></h2>
+                <p class="section-sub">Five O(1) primitives, plus the two application patterns that make stacks worth learning.</p>
+            </div>
+            <div class="op-grid">
+                <article class="op-card" data-step="01" data-reveal="zoom">
+                    <h4>push(x) — insert</h4>
+                    <p>Place x on top: increment <code>top</code>, then write. On a fixed array check <code>isFull()</code> first or you get overflow; a dynamic stack doubles instead.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span><span>amortised on resize</span></div>
+                </article>
+                <article class="op-card" data-step="02" data-reveal="zoom">
+                    <h4>pop() — remove</h4>
+                    <p>Read the top element and decrement <code>top</code>. Nothing shifts. Popping an empty stack is <b>underflow</b> — always guard it.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="03" data-reveal="zoom">
+                    <h4>peek() / top()</h4>
+                    <p>Return the top <b>without</b> removing it. Mixing peek and pop up is a real bug source: one keeps the value, the other consumes it.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="04" data-reveal="zoom">
+                    <h4>isEmpty() / isFull()</h4>
+                    <p>The two guards that make a stack safe: <code>top == -1</code> means empty, <code>top == capacity-1</code> means full. Cheap, and non-optional.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="05" data-reveal="zoom">
+                    <h4>size()</h4>
+                    <p><code>top + 1</code> for an array-backed stack, or a maintained counter for a linked one. Never traverse to count.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="06" data-reveal="zoom">
+                    <h4>search / contains</h4>
+                    <p>Not a stack operation. You would have to pop everything into a second stack and push it back, which is O(n) — if you need this often, a stack is the wrong structure.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="07" data-reveal="zoom">
+                    <h4>Balanced brackets</h4>
+                    <p>Push every opener; on a closer, pop and check it matches. Empty stack on a closer, or leftovers at the end, means unbalanced input.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span><span class="bigo bad">O(n)</span><span>space</span></div>
+                </article>
+                <article class="op-card" data-step="08" data-reveal="zoom">
+                    <h4>Monotonic stack</h4>
+                    <p>Keep indices in monotonic order and resolve them when a violating element arrives. Turns "next greater element", "daily temperatures" and "largest rectangle" from O(n²) into O(n).</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span><span>1 push + 1 pop each</span></div>
+                </article>
+                <article class="op-card" data-step="09" data-reveal="zoom">
+                    <h4>Expression evaluation</h4>
+                    <p>Convert infix to postfix with an operator stack, then evaluate the postfix with a value stack: pop two, apply, push the result. This is how calculators actually work.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="10" data-reveal="zoom">
+                    <h4>Iterative DFS &amp; backtracking</h4>
+                    <p>Recursion uses the hidden call stack; swap in an explicit stack and you get the same traversal without any stack-overflow risk on deep inputs.</p>
+                    <div class="op-foot"><span class="bigo bad">O(V+E)</span><span>time</span></div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================ CODE ============================ -->
+    <section class="block" id="code">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">four languages, one terminal</span>
+                <h2 class="section-title"><span class="g">STACK</span> in Code</h2>
+                <p class="section-sub">Pick an operation, pick a language, copy it out. Your language choice is
+                    remembered across every page.</p>
+            </div>
+            <div data-widget="terminal" data-reveal="zoom"></div>
+        </div>
+    </section>
+
+    <!-- ========================= COMPLEXITY ========================= -->
+    <section class="block" id="complexity">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">the numbers that matter</span>
+                <h2 class="section-title"><span class="g">STACK</span> Complexity</h2>
+                <p class="section-sub">Everything a stack is meant to do is O(1). Anything O(n) here is a sign you picked the wrong structure.</p>
+            </div>
+            <div data-widget="complexity" data-reveal="zoom"></div>
+
+        </div>
+    </section>
+
+    <!-- ======================== CHEAT SHEET ======================== -->
+    <section class="block" id="cheat">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">syntax at a glance</span>
+                <h2 class="section-title"><span class="g">STACK</span> Cheat Sheet</h2>
+                <p class="section-sub">The syntax and templates worth keeping open in a second tab.
+                    Print this section or grab the full multi-topic sheet.</p>
+                <div class="hero-cta" style="margin-top:1.4rem">
+                    <button class="btn btn-sm" type="button" onclick="window.print()">⎙ Print / save as PDF</button>
+                    <a class="btn btn-sm btn-ghost" href="cheatsheet.html">⎘ All cheat sheets</a>
+                </div>
+            </div>
+            <div data-widget="cheatsheet"></div>
+        </div>
+    </section>
+
+    <!-- ========================== PITFALLS ========================== -->
+    <section class="block" id="pitfalls">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">where people slip</span>
+                <h2 class="section-title">Common <span class="g">Pitfalls</span></h2>
+                <p class="section-sub">Every one of these has cost someone an interview. Open each and check yourself.</p>
+            </div>
+            <div data-widget="pitfalls"></div>
+        </div>
+    </section>
+
+    <!-- ========================== PRACTICE ========================== -->
+    <section class="block" id="practice">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">now go break it</span>
+                <h2 class="section-title"><span class="g">Practice</span> Set</h2>
+                <p class="section-sub">Eight problems, easy to hard, each with a one-line hint. Try it without the
+                    hint first — the hint is for when you are properly stuck, not for when you are impatient.</p>
+            </div>
+            <div data-widget="questions"></div>
+        </div>
+    </section>
+
+    <div class="shell">
+        <div data-widget="pager"></div>
     </div>
-    <section class="operations-centre-of-screen" id="operations-section">
 
-        <div class="left-side-explanation">
-            
-            <h4>INSERTION IN <span style="color: #00ff73;">STRING</span></h4>
-
-        <div class="card">
-            <p><strong>1. AT BEGINNING - </strong>Insert a character at the start of the 
-                <span style="color: #00ff73;">STRING</span>. All characters shift right by one. i.e., at index 0.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>2. AT MIDDLE/GIVEN POSITION - </strong>Insert a character at a specified position in the 
-                <span style="color: #00ff73;">STRING</span>. All characters after it shift right. i.e., index = position.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>3. AT END - </strong>Add a character at the end of the 
-                <span style="color: #00ff73;">STRING</span>. No shifting needed.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-        </div>
-
-        <h4>DELETION IN <span style="color: #00ff73;">STRING</span></h4>
-
-        <div class="card">
-            <p><strong>1. FROM BEGINNING -</strong> Remove the first character from the 
-                <span style="color: #00ff73;">STRING</span>. All characters shift left by one.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>2. FROM MIDDLE/GIVEN POSITION - </strong>Remove a character from a specific index in the 
-                <span style="color: #00ff73;">STRING</span>. Remaining characters shift left.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>3. FROM END - </strong>Remove the last character from the 
-                <span style="color: #00ff73;">STRING</span>.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-        </div>
-
-        <h4>SEARCHING IN <span style="color: #00ff73;">STRING</span></h4>
-        <div class="card">
-            <p>Check if a particular character or substring exists within the 
-                <span style="color: #00ff73;">STRING</span>. This is done by scanning from index 0 to end.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <h4>SORTING IN <span style="color: #00ff73;">STRING</span></h4>
-        <div class="card">
-            <p>Sort the characters of the <span style="color: #00ff73;">STRING</span> alphabetically or in reverse order.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n²) (using basic sorting like bubble sort)</p>
-        </div>
-
-        </div>
-        <div class="right-side-cheat-sheet">
-            <div class="cheat-sheet-links-codes">
-                <h4>CODE CHEAT SHEETS FOR <span style="color: #00ff73;">STRING</span></h4>
-                <a href="cheatsheets/insertion_string.pdf" download>Download INSERTION CODE Sheet</a>
-                <a href="cheatsheets/deletion_string.pdf" download>Download DELETION CODE Sheet</a>
-                <a href="cheatsheets/searching_string.pdf" download>Download SEARCHING CODE Sheet</a>
-                <a href="cheatsheets/sorting_string.pdf" download>Download SORTING CODE Sheet</a>
-                <a href="cheatsheets/questions_string.pdf" download>Download QUESTIONS Sheet</a>
-                <a href="cheatsheets/resources_string.pdf" download>Download RESOURCES Sheet</a>
-            </div>
-        </div>
-        </div>
-        </div>
-    </section>
-
-    <section class="terminal" id="terminal">
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-tabs">
-                    <button class="tab-btn active" data-lang="cpp">C++</button>
-                    <button class="tab-btn" data-lang="java">Java</button>
-                    <button class="tab-btn" data-lang="python">Python</button>
-                    <button class="tab-btn" data-lang="javascript">JavaScript</button>
-                </div>
-                <div class="terminal-controls">
-                    <span class="control-dot red"></span>
-                    <span class="control-dot yellow"></span>
-                    <span class="control-dot green"></span>
-                </div>
-            </div>
-            <div class="terminal-body">
-                <pre class="code-display active" id="cpp-code"></pre>
-                <pre class="code-display" id="java-code"></pre>
-                <pre class="code-display" id="python-code"></pre>
-                <pre class="code-display" id="javascript-code"></pre>
-            </div>
-        </div>
-    </section>
-
-    <section class="complexities-chart" id="complexities-chart">
-        <h3><span style="color: #00ff73;">STRING</span> COMPLEXITIES IN A GO...</h3>
-        <img src="/s4.png" alt="COMPLEXITIES - PREVIEW UNAVAILABLE">
-    </section>
-
-    <div class="buttons">
-        <a href="index.html">HOME</a>
-        <a href="#header">TOP OF THE PAGE</a>
-    </div> --> 
-
-    <footer>
-        Fuel Your Coding Journey with the Power of DSA.<br />
-        Queries & Suggestions - harshranjan1111@gmail.com
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Array code examples
-            const codeExamples = {
-                cpp: `// String declaration and initialization in C++
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    // String initialization
-    string str = "Hello";
-
-    // Concatenation
-    str += " World";
-
-    // Accessing characters
-    cout << str[0]; // Output: H
-
-    // Length of string
-    cout << str.length();
-
-    return 0;
-}`,
-
-    java: `// String declaration and initialization in Java
-public class Main {
-    public static void main(String[] args) {
-        // String initialization
-        String str = "Hello";
-
-        // Concatenation
-        str += " World";
-
-        // Accessing characters
-        System.out.println(str.charAt(0)); // Output: H
-
-        // Length of string
-        System.out.println(str.length());
-    }
-}`,
-
-    python: `# String declaration in Python
-str = "Hello"
-
-# Concatenation
-str += " World"
-
-# Accessing characters
-print(str[0])  # Output: H
-
-# Length of string
-print(len(str))`,
-
-    javascript: `// String declaration in JavaScript
-let str = "Hello";
-
-// Concatenation
-str += " World";
-
-// Accessing characters
-console.log(str[0]); // Output: H
-
-// Length of string
-console.log(str.length);`
-};
-
-            // Initialize terminal
-            function initTerminal() {
-                const tabs = document.querySelectorAll('.tab-btn');
-                const codeDisplays = document.querySelectorAll('.code-display');
-
-                // Set initial active tab
-                setActiveTab('cpp');
-
-                // Add click event listeners to tabs
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', () => {
-                        const lang = tab.dataset.lang;
-                        setActiveTab(lang);
-                    });
-                });
-            }
-
-            // Set active tab and display corresponding code
-            function setActiveTab(lang) {
-                // Update active tab button
-                document.querySelectorAll('.tab-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.lang === lang) {
-                        btn.classList.add('active');
-                    }
-                });
-
-                // Update code display
-                document.querySelectorAll('.code-display').forEach(display => {
-                    display.classList.remove('active');
-                    if (display.id === `${lang}-code`) {
-                        display.classList.add('active');
-                        display.textContent = codeExamples[lang];
-                    }
-                });
-            }
-
-            // Initialize when DOM is loaded
-            initTerminal();
-        });
-        // Smooth scrolling for navigation
-        document.querySelectorAll('.options a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                // Skip smooth scrolling for home link (let it do normal redirect)
-                if (this.getAttribute('href') === 'index.html') return;
-
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust for header height
-                        behavior: 'smooth'
-                    });
-
-                    // Update active class
-                    document.querySelectorAll('.options li').forEach(li => {
-                        li.classList.remove('active');
-                    });
-                    this.parentElement.classList.add('active');
-                }
-            });
-        });
-
-        // Highlight current section in nav while scrolling
-        window.addEventListener('scroll', function () {
-            const scrollPosition = window.scrollY + 100;
-
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    document.querySelectorAll('.options li').forEach(li => {
-                        li.classList.remove('active');
-                        if (li.querySelector('a')?.getAttribute('href') === `#${sectionId}`) {
-                            li.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="topics.js"></script>
+    <script src="code.js"></script>
+    <script src="viz.js"></script>
+    <script src="wizard.js"></script>
 </body>
 
 </html>
