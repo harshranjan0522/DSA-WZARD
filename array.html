@@ -4,185 +4,290 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>ARRAYS</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <link rel="stylesheet" href="array.css">
-    <!-- AOS Library -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <title>ARRAY | DSA WIZARD</title>
+    <meta name="description" content="Arrays explained — contiguous memory, O(1) indexing, insertion and deletion shifts, linear vs binary search, with an interactive playground and code in four languages.">
+    <meta name="theme-color" content="#00ff88">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23050b09'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='monospace' fill='%2300ff88'>{}</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="topic.css">
 </head>
 
-<body>
-    <header id="header">
-        <nav>
-            <div class="logo">
-                <h1>DSA WIZARD</h1>
+<body data-topic="array">
+
+    <!-- ============================ HERO ============================ -->
+    <section class="topic-hero">
+        <div class="shell hero-grid">
+            <div>
+                <h1 class="topic-title"><small>core structure · 01 of 08</small>ARRAY</h1>
+                <p class="topic-lede">A collection of elements of the <b>same data type</b> stored in <b>contiguous memory locations</b>. Because every slot is the same width, the address of index <code>i</code> is pure arithmetic — which is why reaching the first element and the ten-thousandth cost exactly the same.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-solid" href="#playground">▸ Open the playground</a>
+                    <a class="btn btn-ghost" href="#code">&lt;/&gt; Jump to code</a>
+                </div>
+                <div data-widget="stats"></div>
             </div>
-            <div class="options">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="#operations-section">OPERATIONS</a></li>
-                    <li><a href="#complexities-chart">COMPLEXITIES</a></li>
-                    <li><a href="#terminal">TERMINAL</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <section class="array-intro">
-        <h1><span style="color: #00ff73;">ARRAY</span></h1>
-        <div class="flex-centre-divided-into-left-and-right">
-            <div class="what-is-array-left-side">
-                <p>A collection of elements of the same data type, stored in contiguous memory locations. Each element
-                    in an
-                    <span style="color: #00ff73;">ARRAY</span> can be accessed using its index, which is a numerical
-                    identifier indicating its position in the
-                    sequence. <br><br>EASY TO UNDERSTAND - An <span style="color: #00ff73;">ARRAY</span> is a list of
-                    items stored in order, all in one place in a
-                    computer's memory.
-                    <br><br>
-                    <span style="color: #00ff73;">TECHNICAL</span> DEFINITION -
-                    An <span style="color: #00ff73;">ARRAY</span> stores multiple values under a single name.
-                    All values must be of the same type (like all numbers or all letters).
-                    Each item has an index (starting from 0).
-                </p>
-            </div>
-            <div class="visual-structure-right-side">
-                <img src="1.png" alt="INITIALIZATION - int arr[size] = {comma separated values};"
-                    srcset="">
+            <div data-reveal="right">
+                <figure class="figure">
+                    <img src="1.png" alt="Declaration — int arr[size] = { comma separated values };" loading="lazy">
+                    <figcaption>Declaration — int arr[size] = { comma separated values };</figcaption>
+                </figure>
             </div>
         </div>
     </section>
-    <section class="real-life-example-centre">
-        <h3>REAL LIFE EXAMPLE OF <span style="color: #00ff73;">ARRAY</span></h3>
-        <img src="2.png" alt="REAL LIFE EXAMPLE - fruits = [name of fruits separated by commas];">
+
+    <!-- =========================== CONCEPT =========================== -->
+    <section class="block" id="concept">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">the concept</span>
+                <h2 class="section-title">What is an <span class="g">ARRAY</span>?</h2>
+                <p class="section-sub">One unbroken block of memory, one index per slot, and a cost model you can predict exactly.</p>
+            </div>
+
+            <div class="split">
+                <div class="panel ticked prose" data-reveal="left">
+                    <h4>In plain english</h4>
+                    <p>An array is a <b>numbered row of boxes</b>, all the same size, sitting side by side in memory.</p>
+                    <p>You do not search for box number 3 — you jump straight to it, because the computer can compute where it must be: <code>address = base + 3 × sizeof(type)</code>.</p>
+                    <p>That single trick is the array's whole superpower, and also its whole weakness: to keep the row unbroken, inserting or deleting in the middle means <b>physically shifting</b> everything after it.</p>
+                </div>
+                <div class="panel ticked prose" data-reveal="right">
+                    <h4>Technically speaking</h4>
+                    <p>An array stores multiple values under a single name. All values must be of the same type, and each element has an <b>index starting from 0</b>, so a size-n array uses indices <code>0 … n-1</code>.</p>
+                    <p><b>Static arrays</b> (<code>int a[100]</code>) fix their capacity at compile time. <b>Dynamic arrays</b> (<code>vector</code>, <code>ArrayList</code>, Python <code>list</code>, JS <code>Array</code>) allocate on the heap and <b>double</b> their buffer when full, which makes appending <b>amortised O(1)</b>.</p>
+                    <p>Contiguity also buys <b>cache locality</b>: walking an array in order is dramatically faster in practice than chasing pointers, even when both are O(n) on paper.</p>
+                </div>
+            </div>
+
+            <div class="split" style="margin-top:2rem">
+                <div class="panel prose" data-reveal="left" data-delay="80">
+                    <h4>Real-life example — a row of lockers</h4>
+                    <div class="analogy">
+                        <div class="analogy-step"><span class="n">01</span><span>A corridor has 5 lockers bolted in a row, numbered 0 to 4.</span></div>
+                        <div class="analogy-step"><span class="n">02</span><span>Someone tells you "locker 3" — you walk straight to it. No searching. That is <b>O(1) access</b>.</span></div>
+                        <div class="analogy-step"><span class="n">03</span><span>A new locker must go between 2 and 3? Every locker from 3 onward has to be unbolted and moved. That is <b>O(n) insertion</b>.</span></div>
+                        <div class="analogy-step"><span class="n">04</span><span>Remove locker 1 and you cannot leave a hole in the row — everything after it slides left. <b>O(n) deletion</b>.</span></div>
+                        <div class="analogy-step"><span class="n">05</span><span>Looking for the locker holding a red bag means opening them one by one: <b>O(n) search</b> — unless the contents are sorted, in which case you can halve the corridor each time: <b>O(log n)</b>.</span></div>
+                    </div>
+                </div>
+                <div data-reveal="right" data-delay="80">
+                <figure class="figure">
+                    <img src="2.png" alt="A real array of values — fruits = [ 'apple', 'banana', … ]" loading="lazy">
+                    <figcaption>A real array of values — fruits = [ "apple", "banana", … ]</figcaption>
+                </figure>
+                </div>
+            </div>
+        </div>
     </section>
-    <section class="features-table-centre-of-screen">
-        <h3>FEATURES OF <span style="color: #00ff73;">ARRAY</span></h3>
-        <img src="3.png"
-            alt="FEATURES OF ARRAYS - Same data type, Fixed size, Indexed access, Fast access, Efficient memory usage, Easy to loop through, Supports sorting and searching, Temporary storage in RAM, Can be multidimensional, Supported in most programming languages.">
+
+    <!-- ========================= PLAYGROUND ========================= -->
+    <section class="block" id="playground">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">interactive</span>
+                <h2 class="section-title"><span class="g">ARRAY</span> Playground</h2>
+                <p class="section-sub">Insert, delete, search and sort a live array. Watch the shifting cost of a front insert, then run binary search before and after sorting to feel the difference between O(n) and O(log n).</p>
+            </div>
+            <div data-viz="array" data-reveal="zoom"></div>
+        </div>
     </section>
 
+    <!-- ========================== FEATURES ========================== -->
+    <section class="block" id="features">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">properties</span>
+                <h2 class="section-title">Features of an <span class="g">ARRAY</span></h2>
+                <p class="section-sub">What the contiguous-block layout gives you, and what it takes away.</p>
+            </div>
+            <div data-widget="features"></div>
 
-    <!-- CSS AND JS DONE WITHOUT RESPONSIVENESS -->
+            <div style="max-width:640px;margin:2.4rem auto 0" data-reveal="zoom">
+                <figure class="figure">
+                    <img src="3.png" alt="Features of arrays — the original reference table" loading="lazy">
+                    <figcaption>Features of arrays — the original reference table</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
 
-    <div class="operations"><h3>OPERATIONS IN AN <span style="color: #00ff73;">ARRAY</span></h3>
+    <!-- =========================== TYPES =========================== -->
+    <section class="block" id="types">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">variants</span>
+                <h2 class="section-title">Kinds of <span class="g">ARRAY</span></h2>
+                <p class="section-sub">The same idea in one dimension, two dimensions, fixed size or growable.</p>
+            </div>
+            <div data-widget="types"></div>
+        </div>
+    </section>
+
+    <!-- ========================= OPERATIONS ========================= -->
+    <section class="block" id="operations">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">what you can do with it</span>
+                <h2 class="section-title">Operations on an <span class="g">ARRAY</span></h2>
+                <p class="section-sub">Four families of operation, and the exact reason each one costs what it costs.</p>
+            </div>
+            <div class="op-grid">
+                <article class="op-card" data-step="01" data-reveal="zoom">
+                    <h4>Insertion — at the beginning</h4>
+                    <p>The new element goes to index <code>0</code>, so every existing element must shift one place right before the write. Size grows by one. This is the most expensive insert there is.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span><span class="bigo bad">n shifts</span><span>work</span></div>
+                </article>
+                <article class="op-card" data-step="02" data-reveal="zoom">
+                    <h4>Insertion — at a given position</h4>
+                    <p>The element lands at <code>index = position</code> and only the tail after it shifts right. Cheaper than a front insert on average, but still linear in the worst case.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span><span class="bigo bad">n-i shifts</span><span>work</span></div>
+                </article>
+                <article class="op-card" data-step="03" data-reveal="zoom">
+                    <h4>Insertion — at the end</h4>
+                    <p>Nothing has to move: write at <code>index = size</code> and increment the size. A dynamic array only pays O(n) on the rare reallocation when the buffer doubles.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span><span>amortised</span></div>
+                </article>
+                <article class="op-card" data-step="04" data-reveal="zoom">
+                    <h4>Deletion — from the beginning</h4>
+                    <p>Removing index <code>0</code> leaves a hole, so the whole tail slides one place left and the size drops by one.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span><span class="bigo bad">n-1 shifts</span><span>work</span></div>
+                </article>
+                <article class="op-card" data-step="05" data-reveal="zoom">
+                    <h4>Deletion — from a position</h4>
+                    <p>Elements after <code>position</code> shift left to close the gap. Deleting inside a loop is the classic accidental O(n²) — iterate backwards or filter into a new array instead.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="06" data-reveal="zoom">
+                    <h4>Deletion — from the end</h4>
+                    <p>Just decrement the size (or <code>pop_back</code>). Nothing shifts, nothing reallocates.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="07" data-reveal="zoom">
+                    <h4>Traversal</h4>
+                    <p>Visit index 0 through <code>size-1</code> with a single counter. Contiguity makes this the most cache-friendly loop in programming.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span><span class="bigo good">O(1)</span><span>space</span></div>
+                </article>
+                <article class="op-card" data-step="08" data-reveal="zoom">
+                    <h4>Linear search</h4>
+                    <p>Compare each element until a match. Works on unsorted data and is the only option when the array has no order.</p>
+                    <div class="op-foot"><span class="bigo bad">O(n)</span><span>time</span><span>any order</span></div>
+                </article>
+                <article class="op-card" data-step="09" data-reveal="zoom">
+                    <h4>Binary search</h4>
+                    <p>Only valid on a <b>sorted</b> array: compare the middle, throw away half the range, repeat. 1,000,000 elements need at most 20 comparisons.</p>
+                    <div class="op-foot"><span class="bigo ok">O(log n)</span><span>time</span><span>sorted only</span></div>
+                </article>
+                <article class="op-card" data-step="10" data-reveal="zoom">
+                    <h4>Sorting</h4>
+                    <p>Bubble/selection/insertion sort are O(n²) and worth writing once to understand. Real code uses the library sort — introsort, Timsort or dual-pivot quicksort — at O(n log n).</p>
+                    <div class="op-foot"><span class="bigo mid">O(n log n)</span><span>time</span><span class="bigo worst">O(n²)</span><span>naive</span></div>
+                </article>
+            </div>
+
+            <div class="split" style="margin-top:2.4rem">
+                <figure class="figure">
+                    <img src="4.png" alt="Insertion at the beginning — arr[0] = 6, everything shifts right" loading="lazy">
+                    <figcaption>Insertion at the beginning — arr[0] = 6, everything shifts right</figcaption>
+                </figure>
+                <figure class="figure">
+                    <img src="5.png" alt="Insertion at position 3 — only the tail shifts" loading="lazy">
+                    <figcaption>Insertion at position 3 — only the tail shifts</figcaption>
+                </figure>
+            </div>
+            <div style="max-width:600px;margin:1.2rem auto 0">
+                <figure class="figure">
+                    <img src="6.png" alt="Insertion at the end — arr[5] = 6, nothing moves" loading="lazy">
+                    <figcaption>Insertion at the end — arr[5] = 6, nothing moves</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ============================ CODE ============================ -->
+    <section class="block" id="code">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">four languages, one terminal</span>
+                <h2 class="section-title"><span class="g">ARRAY</span> in Code</h2>
+                <p class="section-sub">Pick an operation, pick a language, copy it out. Your language choice is
+                    remembered across every page.</p>
+            </div>
+            <div data-widget="terminal" data-reveal="zoom"></div>
+        </div>
+    </section>
+
+    <!-- ========================= COMPLEXITY ========================= -->
+    <section class="block" id="complexity">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">the numbers that matter</span>
+                <h2 class="section-title"><span class="g">ARRAY</span> Complexity</h2>
+                <p class="section-sub">Access is free, order-preserving edits are not. Everything about array performance follows from that.</p>
+            </div>
+            <div data-widget="complexity" data-reveal="zoom"></div>
+
+            <div style="max-width:700px;margin:2.4rem auto 0" data-reveal="zoom">
+                <figure class="figure">
+                    <img src="7.png" alt="Array complexities — the original reference chart" loading="lazy">
+                    <figcaption>Array complexities — the original reference chart</figcaption>
+                </figure>
+            </div>
+        </div>
+    </section>
+
+    <!-- ======================== CHEAT SHEET ======================== -->
+    <section class="block" id="cheat">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">syntax at a glance</span>
+                <h2 class="section-title"><span class="g">ARRAY</span> Cheat Sheet</h2>
+                <p class="section-sub">The syntax and templates worth keeping open in a second tab.
+                    Print this section or grab the full multi-topic sheet.</p>
+                <div class="hero-cta" style="margin-top:1.4rem">
+                    <button class="btn btn-sm" type="button" onclick="window.print()">⎙ Print / save as PDF</button>
+                    <a class="btn btn-sm btn-ghost" href="cheatsheet.html">⎘ All cheat sheets</a>
+                </div>
+            </div>
+            <div data-widget="cheatsheet"></div>
+        </div>
+    </section>
+
+    <!-- ========================== PITFALLS ========================== -->
+    <section class="block" id="pitfalls">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">where people slip</span>
+                <h2 class="section-title">Common <span class="g">Pitfalls</span></h2>
+                <p class="section-sub">Every one of these has cost someone an interview. Open each and check yourself.</p>
+            </div>
+            <div data-widget="pitfalls"></div>
+        </div>
+    </section>
+
+    <!-- ========================== PRACTICE ========================== -->
+    <section class="block" id="practice">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">now go break it</span>
+                <h2 class="section-title"><span class="g">Practice</span> Set</h2>
+                <p class="section-sub">Eight problems, easy to hard, each with a one-line hint. Try it without the
+                    hint first — the hint is for when you are properly stuck, not for when you are impatient.</p>
+            </div>
+            <div data-widget="questions"></div>
+        </div>
+    </section>
+
+    <div class="shell">
+        <div data-widget="pager"></div>
     </div>
-        <section class="operations-centre-of-screen" id="operations-section">
 
-            <div class="left-side-explanation">
-                <h4>INSERTION IN <span style="color: #00ff73;">ARRAY</span></h4>
-                <div class="card">
-                    <p><strong>1. AT BEGINNING - </strong>It means the element to be inserted will be inserted in the starting of the
-                        <span style="color: #00ff73;">ARRAY</span> by increasing the size by one. i.e. at index - 0.
-                    </p>
-                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-                </div>
-                <div class="card">
-                    <p><strong>2. AT MIDDLE/GIVEN POSITION - </strong>It means the element to be inserted will be inserted at the given
-                        position of the
-                        <span style="color: #00ff73;">ARRAY</span> and rest of the elements next to it will shift to one
-                        place towards right by increasing the size by one. i.e. at index - position-1.
-                    </p>
-                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-                </div>
-                <div class="card">
-                    <p><strong>3. AT END - </strong>It means the element to be inserted will be inserted at the last position of the
-                        <span style="color: #00ff73;">ARRAY</span> by increasing the size by one. i.e. at index - (-1).
-                    </p>
-                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-                </div>
-                <h4>DELETION IN <span style="color: #00ff73;">ARRAY</span></h4>
-                <div class="card">
-                    <p><strong>1. FROM BEGINNING -</strong> It means the element to be removed will be removed from the starting of the
-                        <span style="color: #00ff73;">ARRAY</span> by decreasing the size by one. i.e. at index - 0.
-                    </p>
-                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-                </div>
-                <div class="card">
-                    <p><strong>2. FROM MIDDLE/GIVEN POSITION - </strong>It means the element to be deleted will be removed from the given
-                        position of the
-                        <span style="color: #00ff73;">ARRAY</span> and rest of the elements next to it will shift to one
-                        place towards left by decreasing the size by one. i.e. at index - position-1.
-                    </p>
-                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-                </div>
-                <div class="card">
-                    <p><strong>3. FROM END - </strong>It means the element to be removed will be deleted from the last position of the
-                        <span style="color: #00ff73;">ARRAY</span> by decreasing the size by one. i.e. at index - (-1).
-                    </p>
-                    <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-                </div>
-            
-            <h4>SEARCHING IN <span style="color: #00ff73;">ARRAY</span></h4>
-            <div class="card">
-                <p>It means the element to look out for the mentioned or needed element in the
-                    <span style="color: #00ff73;">ARRAY</span> by traversing whole array and checking each of the
-                    elements one by one. i.e. index - 0 to size-1
-                </p>
-                <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-            </div>
-            <h4>SORTING IN <span style="color: #00ff73;">ARRAY</span></h4>
-            <div class="card">
-                <p>It means to sort the <span style="color: #00ff73;">ARRAY</span> either in ascending or in descending
-                    order of the elements present in the
-                    <span style="color: #00ff73;">ARRAY</span> by traversing whole array. i.e. index - 0 to size-1
-                </p>
-                <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n2)</p>
-            </div>
-            
-        </div>
-        <div class="right-side-cheat-sheet">
-            <div class="cheat-sheet-links-codes">
-                <h4>CODE CHEAT SHEETS FOR <span style="color: #00ff73;">ARRAYS</span></h4>
-                <a href="cheatsheets/insertion_array.pdf" download>Download INSERTION CODE Sheet</a>
-                <a href="cheatsheets/deletion_array.pdf" download>Download DELETION CODE Sheet</a>
-                <a href="cheatsheets/searching_array.pdf" download>Download SEARCHING CODE Sheet</a>
-                <a href="cheatsheets/sorting_array.pdf" download>Download SORTING CODE Sheet</a>
-                <a href="cheatsheets/questions_array.pdf" download>Download QUESTIONS Sheet</a>
-                <a href="cheatsheets/resources_array.pdf" download>Download RESOURCES Sheet</a>
-            </div>
-        </div>
-</div>
-        </div>
-    </section>
-    <section class="terminal" id="terminal">
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-tabs">
-                    <button class="tab-btn active" data-lang="cpp">C++</button>
-                    <button class="tab-btn" data-lang="java">Java</button>
-                    <button class="tab-btn" data-lang="python">Python</button>
-                    <button class="tab-btn" data-lang="javascript">JavaScript</button>
-                </div>
-                <div class="terminal-controls">
-                    <span class="control-dot red"></span>
-                    <span class="control-dot yellow"></span>
-                    <span class="control-dot green"></span>
-                </div>
-            </div>
-            <div class="terminal-body">
-                <pre class="code-display active" id="cpp-code"></pre>
-                <pre class="code-display" id="java-code"></pre>
-                <pre class="code-display" id="python-code"></pre>
-                <pre class="code-display" id="javascript-code"></pre>
-            </div>
-        </div>
-    </section>
-    <section class="complexities-chart" id="complexities-chart">
-        <h3><span style="color: #00ff73;">ARRAY</span> COMPLEXITIES IN A GO...</h3>
-        <img src="7.png" alt="COMPLEXITIES - PREVIEW UNAVAILABLE">
-    </section>
-    <div class="buttons">
-    <a href="index.html">HOME</a>
-    <a href="#header">TOP OF THE PAGE</a>
-    </div>
-    <footer>
-        Fuel Your Coding Journey with the Power of DSA.<br />
-        Queries & Suggestions - harshranjan1111@gmail.com
-    </footer>
-    <script src="array.js"></script>
+    <script src="topics.js"></script>
+    <script src="code.js"></script>
+    <script src="viz.js"></script>
+    <script src="wizard.js"></script>
 </body>
 
 </html>

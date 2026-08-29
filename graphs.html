@@ -4,994 +4,279 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>GRAPH</title>
-    <link
-        href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700&family=Rajdhani:wght@300;500;700&display=swap"
-        rel="stylesheet">
-    <link href="https://cdn.jsdelivr.net/npm/tailwindcss@2.2.19/dist/tailwind.min.css" rel="stylesheet">
-    <!-- <link rel="stylesheet" href="array.css"> -->
-    <style>
-        :root {
-            --primary: #00ff88;
-            --secondary: #003b27;
-            --dark: #0a0a0a;
-            --light: #e0e0e0;
-            --glow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-        }
-
-        html {
-            scroll-behavior: smooth;
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            background: #0000 url('image.png') no-repeat center center;
-            background-size: cover;
-            color: var(--light);
-            font-family: 'Rajdhani', Orbitron;
-            overflow-x: hidden;
-        }
-
-        h1,
-        h2,
-        h3,
-        h4 {
-            font-family: 'Orbitron', sans-serif;
-            text-transform: uppercase;
-            letter-spacing: 2px;
-            text-align: center;
-        }
-
-        /* Navigation Bar Styles */
-        header {
-            background-color: #00000084;
-            /* Dark blue background */
-            padding: 1rem 2rem;
-            box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1),
-                0 2px 4px -1px rgba(0, 0, 0, 0.06);
-        }
-
-        nav {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .logo h1 {
-            color: #00ff73;
-            /* Bright green accent */
-            font-family: 'Orbitron', sans-serif;
-            font-weight: 700;
-            font-size: 1.8rem;
-            margin: 0;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            letter-spacing: 1px;
-            text-shadow: 0 0 8px rgba(0, 255, 115, 0.3);
-        }
-
-        .options ul {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-            margin: 0;
-            padding: 0;
-        }
-
-        .options li {
-            color: #e2e8f0;
-            /* Light gray text */
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 500;
-            font-size: 1.1rem;
-            letter-spacing: 0.5px;
-            cursor: pointer;
-            padding: 0.5rem 0;
-            position: relative;
-            transition: all 0.3s ease;
-        }
-
-        .options li:hover {
-            color: #00ff73;
-            /* Green on hover */
-            transform: translateY(-2px);
-        }
-
-        /* Animated underline effect */
-        .options li::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: 0;
-            left: 0;
-            background-color: #00ff73;
-            transition: width 0.3s ease;
-        }
-
-        .options li:hover::after {
-            width: 100%;
-        }
-
-        /* Active tab indicator */
-        .options li.active {
-            color: #00ff73;
-        }
-
-        .options li.active::after {
-            width: 100%;
-        }
-
-
-
-        /* WRITE CODE HERE */
-        .array-intro h1 {
-            font-size: 7rem;
-            font-weight: 800;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            margin: 30px auto;
-        }
-
-        .flex-centre-divided-into-left-and-right {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: row;
-
-            margin-top: 100px;
-        }
-
-        .flex-centre-divided-into-left-and-right .what-is-array-left-side {
-            display: block;
-            width: 550px;
-            background-color: #00ff731b;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 0px 30px;
-        }
-
-        .flex-centre-divided-into-left-and-right .what-is-array-left-side p {
-            text-align: left;
-            line-height: 25px;
-            letter-spacing: 0.3px;
-        }
-
-        .flex-centre-divided-into-left-and-right .visual-structure-right-side img {
-            width: 600px;
-            margin: 0;
-        }
-
-        @keyframes pulse {
-            0% {
-                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-            }
-
-            50% {
-                text-shadow: 0 0 15px var(--primary), 0 0 30px var(--primary);
-            }
-
-            100% {
-                text-shadow: 0 0 10px var(--primary), 0 0 20px var(--primary);
-            }
-        }
-
-        .real-life-example-centre {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 160px auto;
-            flex-direction: column;
-        }
-
-        .real-life-example-centre h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            margin: 20px auto;
-        }
-
-        .features-table-centre-of-screen {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            margin: 0px auto;
-            flex-direction: column;
-            margin-bottom: 70px;
-        }
-
-        .features-table-centre-of-screen h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            text-shadow: var(--glow);
-            animation: pulse 1s infinite alternate;
-            margin: 30px auto;
-
-        }
-
-        .features-table-centre-of-screen img {
-            width: 600px;
-        }
-
-        .operations h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin: 20px auto;
-            margin-top: 150px;
-        }
-
-        .operations-centre-of-screen {
-            display: flex;
-            justify-content: center;
-            /* Changed from space-around */
-            align-items: flex-start;
-            /* Changed from center for better card alignment */
-            flex-direction: row;
-            margin: 100px auto;
-            /* Centered horizontally */
-            max-width: 1200px;
-            /* Changed from fixed width */
-            width: 90%;
-            /* More responsive */
-            gap: 40px;
-            /* Consistent spacing between columns */
-            padding: 20px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation {
-            display: block;
-            width: 900px;
-            background-color: #00ff731b;
-            padding: 30px;
-            border-radius: 20px;
-            margin: 0px 30px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation h4 {
-            font-size: large;
-            text-align: left;
-            margin-top: 30px;
-            margin-bottom: 20px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation p {
-            text-align: left;
-            margin: 4px 0px;
-        }
-
-        .operations-centre-of-screen .left-side-explanation .card {
-            background: #00ff730f;
-            padding: 20px 20px;
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet {
-            display: block;
-            width: 500px;
-            position: sticky;
-
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes h4 {
-            margin-bottom: 50px;
-            text-shadow: var(--glow);
-            font-weight: bolder;
-            font-size: x-large;
-            animation: pulse 1s infinite alternate;
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes a {
-            background-color: #00ff73;
-            display: flex;
-            font-weight: 600;
-            letter-spacing: 1px;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border: none;
-            border-radius: 25px;
-            width: 300px;
-            height: 70px;
-            margin: 70px auto;
-            transition: 0.1s ease-in;
-        }
-
-        .operations-centre-of-screen .right-side-cheat-sheet .cheat-sheet-links-codes a:hover {
-            transform: scale(1.05);
-            cursor: pointer;
-            box-shadow: var(--glow);
-            background-color: #00813a;
-        }
-
-        .complexities-chart {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            flex-direction: column;
-            margin-bottom: 100px;
-        }
-
-        .complexities-chart h3 {
-            font-size: 1.3rem;
-            font-weight: 800;
-            margin: 20px auto;
-            margin-top: 150px;
-        }
-
-        .buttons a {
-            background-color: #00ff73;
-            display: flex;
-            font-weight: 600;
-            letter-spacing: 1px;
-            justify-content: center;
-            align-items: center;
-            color: white;
-            border: none;
-            border-radius: 20px;
-            width: 250px;
-            height: 60px;
-            margin: 70px auto;
-            transition: 0.1s ease-in;
-        }
-
-        .buttons a:hover {
-            transform: scale(1.02);
-            cursor: pointer;
-            background-color: #00813a;
-        }
-
-
-
-
-
-
-
-
-
-
-
-
-        /* Cheat Sheet Styles */
-        .cheat-sheets {
-            margin-top: 12rem;
-            margin-bottom: 8rem;
-            text-align: center;
-        }
-
-        .cheat-sheet-links {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 2rem;
-            justify-content: center;
-            margin-top: 2rem;
-        }
-
-        .cheat-sheet-links a {
-            background-color: var(--primary);
-            color: black;
-            font-weight: bold;
-            padding: 1rem 2rem;
-            border-radius: 10px;
-            text-decoration: none;
-            box-shadow: 0 0 10px var(--primary);
-            transition: background-color 0.3s, transform 0.3s;
-        }
-
-        .cheat-sheet-links a:hover {
-            background-color: #00ff884c;
-            transform: scale(1.05);
-        }
-
-        .why-dsa {
-            text-align: center;
-            display: flex;
-            justify-content: space-around;
-            align-items: center;
-            padding: 4rem;
-            height: 100vh;
-            flex-direction: row;
-            box-sizing: border-box;
-            width: auto;
-        }
-
-        .left-side {
-            flex: 1;
-            font-size: 2rem;
-            line-height: 1.5;
-            font-weight: bold;
-            text-transform: uppercase;
-            width: 400px;
-            text-align: left;
-            margin-right: 40px;
-        }
-
-        .right-side {
-            flex: 1;
-            background-color: rgba(0, 255, 136, 0.15);
-            /* green transparent */
-            padding: 2rem;
-            border-radius: 20px;
-            font-size: 1.1rem;
-            line-height: 1.6;
-            color: white;
-            font-weight: 500;
-            width: min-content;
-            line-height: 40px;
-        }
-
-        footer {
-            text-align: center;
-            padding: 2rem;
-            background-color: rgba(0, 0, 0, 0.7);
-            ;
-            color: var(--primary);
-            font-size: 1rem;
-            margin-top: 3rem;
-            border: none;
-        }
-
-        /* Responsive adjustments */
-
-        /* TERMINAL STYLES */
-        .terminal {
-            margin: 4rem auto;
-            max-width: 850px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 255, 115, 0.15);
-            border: 1px solid rgba(0, 255, 115, 0.2);
-            background: #0a0f17;
-        }
-
-        .terminal-container {
-            background: #0a0f17;
-            color: #e0e0e0;
-            font-family: 'Fira Code', 'Consolas', monospace;
-            font-size: 0.95rem;
-            line-height: 1.7;
-        }
-
-        .terminal-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            background: rgba(0, 0, 0, 0.3);
-            padding: 0.8rem 1.5rem;
-            border-bottom: 1px solid rgba(0, 255, 115, 0.1);
-        }
-
-        .terminal-tabs {
-            display: flex;
-            gap: 0.8rem;
-        }
-
-        .tab-btn {
-            background: transparent;
-            color: #7a7a8c;
-            border: none;
-            padding: 0.5rem 1.2rem;
-            border-radius: 6px;
-            cursor: pointer;
-            font-family: 'Rajdhani', sans-serif;
-            font-weight: 700;
-            font-size: 0.9rem;
-            letter-spacing: 0.5px;
-            text-transform: uppercase;
-            transition: all 0.3s ease;
-            position: relative;
-            overflow: hidden;
-        }
-
-        .tab-btn::before {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 100%;
-            height: 2px;
-            background: #00ff73;
-            transform: scaleX(0);
-            transition: transform 0.3s ease;
-        }
-
-        .tab-btn:hover {
-            color: #d4d4d4;
-        }
-
-        .tab-btn.active {
-            color: #00ff73;
-            background: rgba(0, 255, 115, 0.1);
-        }
-
-        .tab-btn.active::before {
-            transform: scaleX(1);
-        }
-
-        .terminal-controls {
-            display: flex;
-            gap: 0.6rem;
-        }
-
-        .control-dot {
-            width: 14px;
-            height: 14px;
-            border-radius: 50%;
-            opacity: 0.7;
-            transition: opacity 0.3s ease;
-        }
-
-        .control-dot:hover {
-            opacity: 1;
-        }
-
-        .red {
-            background: #ff5f56;
-        }
-
-        .yellow {
-            background: #ffbd2e;
-        }
-
-        .green {
-            background: #27c93f;
-        }
-
-        .terminal-body {
-            padding: 1.8rem;
-            min-height: 280px;
-            max-height: 400px;
-            overflow-y: auto;
-            scrollbar-width: thin;
-            scrollbar-color: #00ff73 #0a0f17;
-        }
-
-        .terminal-body::-webkit-scrollbar {
-            width: 6px;
-        }
-
-        .terminal-body::-webkit-scrollbar-track {
-            background: #0a0f17;
-        }
-
-        .terminal-body::-webkit-scrollbar-thumb {
-            background-color: #00ff73;
-            border-radius: 3px;
-        }
-
-        .code-display {
-            display: none;
-            margin: 0;
-            white-space: pre-wrap;
-            tab-size: 4;
-        }
-
-        .code-display.active {
-            display: block;
-            animation: fadeIn 0.5s ease;
-        }
-
-        @keyframes fadeIn {
-            from {
-                opacity: 0.5;
-                transform: translateY(5px);
-            }
-
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .code-comment {
-            color: #6a9955;
-            font-style: italic;
-        }
-
-        .code-keyword {
-            color: #569cd6;
-            font-weight: bold;
-        }
-
-        .code-string {
-            color: #ce9178;
-        }
-
-        .code-function {
-            color: #dcdcaa;
-        }
-
-        .code-number {
-            color: #b5cea8;
-        }
-
-        .code-operator {
-            color: #d4d4d4;
-            font-weight: bold;
-        }
-
-        /* Responsive adjustments */
-        @media (max-width: 768px) {
-            .terminal {
-                margin: 2rem auto;
-                border-radius: 8px;
-            }
-
-            .terminal-header {
-                padding: 0.6rem 1rem;
-            }
-
-            .terminal-tabs {
-                gap: 0.4rem;
-            }
-
-            .tab-btn {
-                padding: 0.4rem 0.8rem;
-                font-size: 0.8rem;
-            }
-
-            .terminal-body {
-                padding: 1.2rem;
-                min-height: 220px;
-            }
-        }
-    </style>
-    <!-- AOS Library -->
-    <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+    <title>GRAPHS | DSA WIZARD</title>
+    <meta name="description" content="Graphs explained — vertices and edges, adjacency list vs matrix, BFS and DFS, shortest paths with Dijkstra, cycle detection and topological sort, with an interactive playground and code in four languages.">
+    <meta name="theme-color" content="#00ff88">
+    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%23050b09'/><text y='72' x='50' text-anchor='middle' font-size='58' font-family='monospace' fill='%2300ff88'>{}</text></svg>">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@400;700;900&family=Rajdhani:wght@300;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="theme.css">
+    <link rel="stylesheet" href="topic.css">
 </head>
 
-<body>
-    <header id="header">
-        <nav>
-            <div class="logo">
-                <h1>DSA WIZARD</h1>
-            </div>
-            <div class="options">
-                <ul>
-                    <li><a href="index.html">HOME</a></li>
-                    <li><a href="#operations-section">OPERATIONS</a></li>
-                    <li><a href="#complexities-chart">COMPLEXITIES</a></li>
-                    <li><a href="#terminal">TERMINAL</a></li>
-                </ul>
-            </div>
-        </nav>
-    </header>
-    <section class="array-intro">
-        <h1><span style="color: #00ff73;">UNDER MAINTENANCE</span></h1>
-        <!-- <div class="flex-centre-divided-into-left-and-right">
-            <div class="what-is-array-left-side">
-                <p>A <span style="color: #00ff73;">STRING</span> is a sequence of
-                    characters, such as letters,
-                    numbers, symbols, and spaces. It
-                    is a fundamental data type used
-                    to represent text in
-                    programming.
-                    <br><br>
-                    A string is a sequence of characters. It is used to store and manipulate text.
-                    <br><br>
-                    <strong>Key Properties of Strings:</strong>
-                    Characters inside quotes: "hello" or 'a' <br>
-                    Immutable in many languages (like C++ std::string and Python) <br>
-                    Indexed: You can access characters by position (starting at index 0) <br>
+<body data-topic="graphs">
 
-                </p>
-                <span style="color: #00ff73;">TECHNICAL</span> DEFINITION -
-                An <span style="color: #00ff73;">STRING</span> stores multiple values under a single name.
-                All values must be of the same type (like all numbers or all letters).
-                Each item has an index (starting from 0).
-                </p>
+    <!-- ============================ HERO ============================ -->
+    <section class="topic-hero">
+        <div class="shell hero-grid">
+            <div>
+                <h1 class="topic-title"><small>deep dive · 08 of 08</small>GRAPHS</h1>
+                <p class="topic-lede">A <b>non-linear</b> structure of <b>vertices</b> joined by <b>edges</b>, modelling relationships rather than sequences — maps, social networks, dependencies, web links. Trees are graphs without cycles; grids are graphs in disguise. Master <b>BFS</b> and <b>DFS</b> and the rest of the subject follows.</p>
+                <div class="hero-actions">
+                    <a class="btn btn-solid" href="#playground">▸ Open the playground</a>
+                    <a class="btn btn-ghost" href="#code">&lt;/&gt; Jump to code</a>
+                </div>
+                <div data-widget="stats"></div>
             </div>
-            <div class="visual-structure-right-side">
-                <img src="/s1.png" alt="INITIALIZATION - int arr[size] = {comma separated values};"
-                    srcset="">
+            <div data-reveal="right">
+                <div class="panel prose ticked" data-reveal="right">
+                    <h4>Two ways to store one</h4>
+                    <p class="mono" style="color:var(--primary);line-height:2.1">// adjacency list — O(V+E) space<br>A → B, D<br>B → A, C, E<br>C → B, F<br><br>// adjacency matrix — O(V²) space<br>&nbsp;&nbsp;&nbsp;A B C<br>A&nbsp;&nbsp;0 1 0<br>B&nbsp;&nbsp;1 0 1<br>C&nbsp;&nbsp;0 1 0</p>
+                    <div class="callout"><b>Pick by density.</b> Real graphs are sparse (E ≈ V), so the list wins almost always. Use a matrix when you constantly ask "is u adjacent to v?" — that is O(1) on a matrix and O(deg V) on a list.</div>
+                </div>
             </div>
         </div>
     </section>
 
-    <section class="real-life-example-centre">
-        <h3>REAL LIFE EXAMPLE OF <span style="color: #00ff73;">STRING</span></h3>
-        <img src="/s2.png" alt="REAL LIFE EXAMPLE - fruits = [name of fruits separated by commas];">
+    <!-- =========================== CONCEPT =========================== -->
+    <section class="block" id="concept">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">the concept</span>
+                <h2 class="section-title">What are <span class="g">GRAPHS</span>?</h2>
+                <p class="section-sub">Drop the requirement that data be sequential or hierarchical, and you get the most general structure there is.</p>
+            </div>
+
+            <div class="split">
+                <div class="panel ticked prose" data-reveal="left">
+                    <h4>In plain english</h4>
+                    <p>A graph is dots and lines. The dots are <b>vertices</b> (nodes) and the lines are <b>edges</b> (connections).</p>
+                    <p>A city map: junctions are vertices, roads are edges. A road with one-way traffic is a <b>directed</b> edge; a two-way road is <b>undirected</b>.</p>
+                    <p>Put a number on an edge — distance, toll, latency — and the graph is <b>weighted</b>. That is when shortest path becomes an interesting question.</p>
+                    <p>Unlike a tree, a graph can loop back on itself and can come in several disconnected pieces. Both facts are why every traversal needs a <b>visited</b> set.</p>
+                </div>
+                <div class="panel ticked prose" data-reveal="right">
+                    <h4>Technically speaking</h4>
+                    <p>A graph is G = (V, E). Traversals cost <b>O(V+E)</b> with an adjacency list and <b>O(V²)</b> with a matrix, because a matrix forces you to inspect every possible edge.</p>
+                    <p><b>BFS</b> uses a queue and explores in rings of increasing distance, so on an <b>unweighted</b> graph the first time you reach a vertex is along a shortest path. <b>DFS</b> uses a stack (or recursion) and dives deep, which is what exposes cycles, components and topological order.</p>
+                    <p>Add weights and BFS is no longer correct: use <b>Dijkstra</b> with a min-heap at O((V+E) log V) for non-negative weights, and <b>Bellman-Ford</b> at O(V·E) when negative edges are possible.</p>
+                    <p>A <b>DAG</b> — directed, no cycles — is the shape dependencies form, and <b>Kahn's algorithm</b> sorts it in O(V+E). If a topological sort cannot consume every vertex, the graph had a cycle.</p>
+                </div>
+            </div>
+
+            <div class="split" style="margin-top:2rem">
+                <div class="panel prose" data-reveal="left" data-delay="80">
+                    <h4>Real-life examples — graphs you already use</h4>
+                    <div class="analogy">
+                        <div class="analogy-step"><span class="n">01</span><span><b>Maps &amp; navigation:</b> junctions are vertices, roads are weighted edges, and "fastest route" is Dijkstra.</span></div>
+                        <div class="analogy-step"><span class="n">02</span><span><b>Social networks:</b> friendship is undirected; "follows" is directed. "People you may know" is a two-hop BFS.</span></div>
+                        <div class="analogy-step"><span class="n">03</span><span><b>The web:</b> pages are vertices, hyperlinks are directed edges — PageRank runs on exactly this graph.</span></div>
+                        <div class="analogy-step"><span class="n">04</span><span><b>Build systems &amp; course prerequisites:</b> a DAG; the valid order is a topological sort, and a cycle means an impossible plan.</span></div>
+                        <div class="analogy-step"><span class="n">05</span><span><b>Flight networks:</b> airports and routes. "Fewest layovers" is BFS; "cheapest fare" is Dijkstra.</span></div>
+                        <div class="analogy-step"><span class="n">06</span><span><b>Any grid puzzle:</b> each cell is a vertex with up to four edges. Islands, flood fill and maze solving are all graph traversals.</span></div>
+                    </div>
+                </div>
+                <div data-reveal="right" data-delay="80">
+                <div class="panel prose" data-reveal="right">
+                    <h4>BFS or DFS? Decide in one line</h4>
+                    <p><b>BFS (queue)</b> — shortest path on unweighted edges, level-by-level questions, "minimum number of steps/minutes", nearest match.</p>
+                    <p><b>DFS (stack / recursion)</b> — does a path exist, connected components, cycle detection, topological sort, backtracking and flood fill.</p>
+                    <p>Same code skeleton, same O(V+E). The only difference is whether the frontier is a queue or a stack — swap the container and the behaviour flips.</p>
+                    <div class="callout"><b>Always</b> keep a <code>visited</code> set, and mark on <b>enqueue</b> rather than on dequeue. Skip either and a single cycle loops forever.</div>
+                </div>
+                </div>
+            </div>
+        </div>
     </section>
 
-    <section class="features-table-centre-of-screen">
-        <h3>FEATURES OF <span style="color: #00ff73;">STRING</span></h3>
-        <img src="/s3.png"
-            alt="FEATURES OF ARRAYS - Same data type, Fixed size, Indexed access, Fast access, Efficient memory usage, Easy to loop through, Supports sorting and searching, Temporary storage in RAM, Can be multidimensional, Supported in most programming languages.">
+    <!-- ========================= PLAYGROUND ========================= -->
+    <section class="block" id="playground">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">interactive</span>
+                <h2 class="section-title"><span class="g">GRAPHS</span> Playground</h2>
+                <p class="section-sub">Run BFS and DFS on the same graph and watch the queue and the stack fill up side by side — the visit orders diverge immediately. Then trace the BFS shortest path from any start vertex to G.</p>
+            </div>
+            <div data-viz="graphs" data-reveal="zoom"></div>
+        </div>
     </section>
 
+    <!-- ========================== FEATURES ========================== -->
+    <section class="block" id="features">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">properties</span>
+                <h2 class="section-title">Features of <span class="g">GRAPHS</span></h2>
+                <p class="section-sub">Maximum generality: direction, weights, cycles and disconnected pieces all allowed.</p>
+            </div>
+            <div data-widget="features"></div>
 
-    <!-- CSS AND JS DONE WITHOUT RESPONSIVENESS -->
+        </div>
+    </section>
 
-    <!-- <div class="operations">
-        <h3>OPERATIONS IN AN <span style="color: #00ff73;">STRING</span></h3>
+    <!-- =========================== TYPES =========================== -->
+    <section class="block" id="types">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">variants</span>
+                <h2 class="section-title">Kinds of <span class="g">GRAPHS</span></h2>
+                <p class="section-sub">Eight classifications, each of which changes which algorithms are even valid.</p>
+            </div>
+            <div data-widget="types"></div>
+        </div>
+    </section>
+
+    <!-- ========================= OPERATIONS ========================= -->
+    <section class="block" id="operations">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">what you can do with it</span>
+                <h2 class="section-title">Operations on <span class="g">GRAPHS</span></h2>
+                <p class="section-sub">Two traversals do most of the work; the named algorithms are variations on them.</p>
+            </div>
+            <div class="op-grid">
+                <article class="op-card" data-step="01" data-reveal="zoom">
+                    <h4>Add a vertex</h4>
+                    <p>Append an empty neighbour list — O(1). On an adjacency matrix you must rebuild it at a new size, which is O(V²).</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span><span class="bigo worst">O(V²)</span><span>matrix</span></div>
+                </article>
+                <article class="op-card" data-step="02" data-reveal="zoom">
+                    <h4>Add an edge</h4>
+                    <p><code>adj[u].add(v)</code>. For an <b>undirected</b> graph you must add <code>adj[v].add(u)</code> too — forgetting the second line is the single most common graph bug.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="03" data-reveal="zoom">
+                    <h4>Remove an edge</h4>
+                    <p>An adjacency list scans u's neighbours to find v, so it costs O(deg V). A matrix just writes a zero.</p>
+                    <div class="op-foot"><span class="bigo bad">O(deg V)</span><span>time</span><span class="bigo good">O(1)</span><span>matrix</span></div>
+                </article>
+                <article class="op-card" data-step="04" data-reveal="zoom">
+                    <h4>Check adjacency</h4>
+                    <p>"Is u connected to v?" — O(1) on a matrix, O(deg V) on a list. This one question is the main reason to ever choose a matrix.</p>
+                    <div class="op-foot"><span class="bigo good">O(1)</span><span>time</span><span class="bigo bad">O(deg V)</span><span>list</span></div>
+                </article>
+                <article class="op-card" data-step="05" data-reveal="zoom">
+                    <h4>BFS traversal</h4>
+                    <p>Queue-driven, expanding in rings of equal distance. Gives the <b>shortest path in an unweighted graph</b> and answers all "minimum steps" questions.</p>
+                    <div class="op-foot"><span class="bigo bad">O(V+E)</span><span>time</span><span class="bigo bad">O(V)</span><span>space</span></div>
+                </article>
+                <article class="op-card" data-step="06" data-reveal="zoom">
+                    <h4>DFS traversal</h4>
+                    <p>Stack- or recursion-driven, diving as deep as possible before backtracking. The base for components, cycles, topological order and flood fill.</p>
+                    <div class="op-foot"><span class="bigo bad">O(V+E)</span><span>time</span><span class="bigo bad">O(V)</span><span>space</span></div>
+                </article>
+                <article class="op-card" data-step="07" data-reveal="zoom">
+                    <h4>Connected components</h4>
+                    <p>Loop over every vertex; each unvisited one starts a fresh DFS and counts as a new component. Never assume the graph is a single piece.</p>
+                    <div class="op-foot"><span class="bigo bad">O(V+E)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="08" data-reveal="zoom">
+                    <h4>Cycle detection</h4>
+                    <p>Undirected: DFS while ignoring the edge you arrived on — meeting a visited vertex means a cycle. Directed: track vertices on the current recursion stack, or check whether a topological sort consumes every vertex.</p>
+                    <div class="op-foot"><span class="bigo bad">O(V+E)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="09" data-reveal="zoom">
+                    <h4>Shortest path — weighted</h4>
+                    <p><b>Dijkstra</b> with a min-heap for non-negative weights; <b>Bellman-Ford</b> at O(V·E) when edges can be negative; <b>Floyd-Warshall</b> at O(V³) for all pairs.</p>
+                    <div class="op-foot"><span class="bigo ok">O((V+E) log V)</span><span>time</span><span>Dijkstra</span></div>
+                </article>
+                <article class="op-card" data-step="10" data-reveal="zoom">
+                    <h4>Topological sort (DAG)</h4>
+                    <p>Kahn's algorithm: repeatedly take a vertex with in-degree 0 and remove its outgoing edges. Produces a valid dependency order, or proves a cycle exists.</p>
+                    <div class="op-foot"><span class="bigo bad">O(V+E)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="11" data-reveal="zoom">
+                    <h4>Minimum spanning tree</h4>
+                    <p>Cheapest set of edges that keeps everything connected. <b>Kruskal</b> sorts edges and uses union-find; <b>Prim</b> grows one tree with a min-heap.</p>
+                    <div class="op-foot"><span class="bigo mid">O(E log E)</span><span>time</span></div>
+                </article>
+                <article class="op-card" data-step="12" data-reveal="zoom">
+                    <h4>Grid as a graph</h4>
+                    <p>Treat each cell as a vertex with up to four neighbours from <code>dirs = [(1,0),(-1,0),(0,1),(0,-1)]</code>, bounds-checked. Islands, rotting oranges and maze solving are then plain BFS/DFS.</p>
+                    <div class="op-foot"><span class="bigo bad">O(R·C)</span><span>time</span></div>
+                </article>
+            </div>
+
+        </div>
+    </section>
+
+    <!-- ============================ CODE ============================ -->
+    <section class="block" id="code">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">four languages, one terminal</span>
+                <h2 class="section-title"><span class="g">GRAPHS</span> in Code</h2>
+                <p class="section-sub">Pick an operation, pick a language, copy it out. Your language choice is
+                    remembered across every page.</p>
+            </div>
+            <div data-widget="terminal" data-reveal="zoom"></div>
+        </div>
+    </section>
+
+    <!-- ========================= COMPLEXITY ========================= -->
+    <section class="block" id="complexity">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">the numbers that matter</span>
+                <h2 class="section-title"><span class="g">GRAPHS</span> Complexity</h2>
+                <p class="section-sub">Almost everything is O(V+E) with an adjacency list — the representation you choose sets the ceiling.</p>
+            </div>
+            <div data-widget="complexity" data-reveal="zoom"></div>
+
+        </div>
+    </section>
+
+    <!-- ======================== CHEAT SHEET ======================== -->
+    <section class="block" id="cheat">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">syntax at a glance</span>
+                <h2 class="section-title"><span class="g">GRAPHS</span> Cheat Sheet</h2>
+                <p class="section-sub">The syntax and templates worth keeping open in a second tab.
+                    Print this section or grab the full multi-topic sheet.</p>
+                <div class="hero-cta" style="margin-top:1.4rem">
+                    <button class="btn btn-sm" type="button" onclick="window.print()">⎙ Print / save as PDF</button>
+                    <a class="btn btn-sm btn-ghost" href="cheatsheet.html">⎘ All cheat sheets</a>
+                </div>
+            </div>
+            <div data-widget="cheatsheet"></div>
+        </div>
+    </section>
+
+    <!-- ========================== PITFALLS ========================== -->
+    <section class="block" id="pitfalls">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">where people slip</span>
+                <h2 class="section-title">Common <span class="g">Pitfalls</span></h2>
+                <p class="section-sub">Every one of these has cost someone an interview. Open each and check yourself.</p>
+            </div>
+            <div data-widget="pitfalls"></div>
+        </div>
+    </section>
+
+    <!-- ========================== PRACTICE ========================== -->
+    <section class="block" id="practice">
+        <div class="shell">
+            <div class="section-head" data-reveal>
+                <span class="eyebrow">now go break it</span>
+                <h2 class="section-title"><span class="g">Practice</span> Set</h2>
+                <p class="section-sub">Eight problems, easy to hard, each with a one-line hint. Try it without the
+                    hint first — the hint is for when you are properly stuck, not for when you are impatient.</p>
+            </div>
+            <div data-widget="questions"></div>
+        </div>
+    </section>
+
+    <div class="shell">
+        <div data-widget="pager"></div>
     </div>
-    <section class="operations-centre-of-screen" id="operations-section">
 
-        <div class="left-side-explanation">
-            
-            <h4>INSERTION IN <span style="color: #00ff73;">STRING</span></h4>
-
-        <div class="card">
-            <p><strong>1. AT BEGINNING - </strong>Insert a character at the start of the 
-                <span style="color: #00ff73;">STRING</span>. All characters shift right by one. i.e., at index 0.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>2. AT MIDDLE/GIVEN POSITION - </strong>Insert a character at a specified position in the 
-                <span style="color: #00ff73;">STRING</span>. All characters after it shift right. i.e., index = position.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>3. AT END - </strong>Add a character at the end of the 
-                <span style="color: #00ff73;">STRING</span>. No shifting needed.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-        </div>
-
-        <h4>DELETION IN <span style="color: #00ff73;">STRING</span></h4>
-
-        <div class="card">
-            <p><strong>1. FROM BEGINNING -</strong> Remove the first character from the 
-                <span style="color: #00ff73;">STRING</span>. All characters shift left by one.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>2. FROM MIDDLE/GIVEN POSITION - </strong>Remove a character from a specific index in the 
-                <span style="color: #00ff73;">STRING</span>. Remaining characters shift left.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <div class="card">
-            <p><strong>3. FROM END - </strong>Remove the last character from the 
-                <span style="color: #00ff73;">STRING</span>.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(1)</p>
-        </div>
-
-        <h4>SEARCHING IN <span style="color: #00ff73;">STRING</span></h4>
-        <div class="card">
-            <p>Check if a particular character or substring exists within the 
-                <span style="color: #00ff73;">STRING</span>. This is done by scanning from index 0 to end.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n)</p>
-        </div>
-
-        <h4>SORTING IN <span style="color: #00ff73;">STRING</span></h4>
-        <div class="card">
-            <p>Sort the characters of the <span style="color: #00ff73;">STRING</span> alphabetically or in reverse order.
-            </p>
-            <p><span style="color: #00ff73;">TIME COMPLEXITY - </span>O(n²) (using basic sorting like bubble sort)</p>
-        </div>
-
-        </div>
-        <div class="right-side-cheat-sheet">
-            <div class="cheat-sheet-links-codes">
-                <h4>CODE CHEAT SHEETS FOR <span style="color: #00ff73;">STRING</span></h4>
-                <a href="cheatsheets/insertion_string.pdf" download>Download INSERTION CODE Sheet</a>
-                <a href="cheatsheets/deletion_string.pdf" download>Download DELETION CODE Sheet</a>
-                <a href="cheatsheets/searching_string.pdf" download>Download SEARCHING CODE Sheet</a>
-                <a href="cheatsheets/sorting_string.pdf" download>Download SORTING CODE Sheet</a>
-                <a href="cheatsheets/questions_string.pdf" download>Download QUESTIONS Sheet</a>
-                <a href="cheatsheets/resources_string.pdf" download>Download RESOURCES Sheet</a>
-            </div>
-        </div>
-        </div>
-        </div>
-    </section>
-
-    <section class="terminal" id="terminal">
-        <div class="terminal-container">
-            <div class="terminal-header">
-                <div class="terminal-tabs">
-                    <button class="tab-btn active" data-lang="cpp">C++</button>
-                    <button class="tab-btn" data-lang="java">Java</button>
-                    <button class="tab-btn" data-lang="python">Python</button>
-                    <button class="tab-btn" data-lang="javascript">JavaScript</button>
-                </div>
-                <div class="terminal-controls">
-                    <span class="control-dot red"></span>
-                    <span class="control-dot yellow"></span>
-                    <span class="control-dot green"></span>
-                </div>
-            </div>
-            <div class="terminal-body">
-                <pre class="code-display active" id="cpp-code"></pre>
-                <pre class="code-display" id="java-code"></pre>
-                <pre class="code-display" id="python-code"></pre>
-                <pre class="code-display" id="javascript-code"></pre>
-            </div>
-        </div>
-    </section>
-
-    <section class="complexities-chart" id="complexities-chart">
-        <h3><span style="color: #00ff73;">STRING</span> COMPLEXITIES IN A GO...</h3>
-        <img src="/s4.png" alt="COMPLEXITIES - PREVIEW UNAVAILABLE">
-    </section>
-
-    <div class="buttons">
-        <a href="index.html">HOME</a>
-        <a href="#header">TOP OF THE PAGE</a>
-    </div> --> 
-
-    <footer>
-        Fuel Your Coding Journey with the Power of DSA.<br />
-        Queries & Suggestions - harshranjan1111@gmail.com
-    </footer>
-
-    <script>
-        document.addEventListener('DOMContentLoaded', function () {
-            // Array code examples
-            const codeExamples = {
-                cpp: `// String declaration and initialization in C++
-#include <iostream>
-#include <string>
-using namespace std;
-
-int main() {
-    // String initialization
-    string str = "Hello";
-
-    // Concatenation
-    str += " World";
-
-    // Accessing characters
-    cout << str[0]; // Output: H
-
-    // Length of string
-    cout << str.length();
-
-    return 0;
-}`,
-
-    java: `// String declaration and initialization in Java
-public class Main {
-    public static void main(String[] args) {
-        // String initialization
-        String str = "Hello";
-
-        // Concatenation
-        str += " World";
-
-        // Accessing characters
-        System.out.println(str.charAt(0)); // Output: H
-
-        // Length of string
-        System.out.println(str.length());
-    }
-}`,
-
-    python: `# String declaration in Python
-str = "Hello"
-
-# Concatenation
-str += " World"
-
-# Accessing characters
-print(str[0])  # Output: H
-
-# Length of string
-print(len(str))`,
-
-    javascript: `// String declaration in JavaScript
-let str = "Hello";
-
-// Concatenation
-str += " World";
-
-// Accessing characters
-console.log(str[0]); // Output: H
-
-// Length of string
-console.log(str.length);`
-};
-
-            // Initialize terminal
-            function initTerminal() {
-                const tabs = document.querySelectorAll('.tab-btn');
-                const codeDisplays = document.querySelectorAll('.code-display');
-
-                // Set initial active tab
-                setActiveTab('cpp');
-
-                // Add click event listeners to tabs
-                tabs.forEach(tab => {
-                    tab.addEventListener('click', () => {
-                        const lang = tab.dataset.lang;
-                        setActiveTab(lang);
-                    });
-                });
-            }
-
-            // Set active tab and display corresponding code
-            function setActiveTab(lang) {
-                // Update active tab button
-                document.querySelectorAll('.tab-btn').forEach(btn => {
-                    btn.classList.remove('active');
-                    if (btn.dataset.lang === lang) {
-                        btn.classList.add('active');
-                    }
-                });
-
-                // Update code display
-                document.querySelectorAll('.code-display').forEach(display => {
-                    display.classList.remove('active');
-                    if (display.id === `${lang}-code`) {
-                        display.classList.add('active');
-                        display.textContent = codeExamples[lang];
-                    }
-                });
-            }
-
-            // Initialize when DOM is loaded
-            initTerminal();
-        });
-        // Smooth scrolling for navigation
-        document.querySelectorAll('.options a').forEach(anchor => {
-            anchor.addEventListener('click', function (e) {
-                // Skip smooth scrolling for home link (let it do normal redirect)
-                if (this.getAttribute('href') === 'index.html') return;
-
-                e.preventDefault();
-
-                const targetId = this.getAttribute('href');
-                const targetElement = document.querySelector(targetId);
-
-                if (targetElement) {
-                    window.scrollTo({
-                        top: targetElement.offsetTop - 80, // Adjust for header height
-                        behavior: 'smooth'
-                    });
-
-                    // Update active class
-                    document.querySelectorAll('.options li').forEach(li => {
-                        li.classList.remove('active');
-                    });
-                    this.parentElement.classList.add('active');
-                }
-            });
-        });
-
-        // Highlight current section in nav while scrolling
-        window.addEventListener('scroll', function () {
-            const scrollPosition = window.scrollY + 100;
-
-            document.querySelectorAll('section').forEach(section => {
-                const sectionTop = section.offsetTop;
-                const sectionHeight = section.offsetHeight;
-                const sectionId = section.getAttribute('id');
-
-                if (scrollPosition >= sectionTop && scrollPosition < sectionTop + sectionHeight) {
-                    document.querySelectorAll('.options li').forEach(li => {
-                        li.classList.remove('active');
-                        if (li.querySelector('a')?.getAttribute('href') === `#${sectionId}`) {
-                            li.classList.add('active');
-                        }
-                    });
-                }
-            });
-        });
-    </script>
+    <script src="topics.js"></script>
+    <script src="code.js"></script>
+    <script src="viz.js"></script>
+    <script src="wizard.js"></script>
 </body>
 
 </html>
